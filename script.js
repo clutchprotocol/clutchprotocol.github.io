@@ -264,3 +264,4 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('🚗 Clutch Protocol website loaded successfully!');
     console.log('💡 Built with modern web technologies for the decentralized future');
 });
+
