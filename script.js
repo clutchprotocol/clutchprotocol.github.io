@@ -265,3 +265,4 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('💡 Built with modern web technologies for the decentralized future');
 });
 
+
