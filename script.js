@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
 
     // Observe elements for animation
-    const animateElements = document.querySelectorAll('.feature-card, .team-member, .community-card, .timeline-item, .arch-component');
+    const animateElements = document.querySelectorAll('.feature-card, .team-member, .community-card, .arch-component');
     animateElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
@@ -146,37 +146,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Timeline progress indicator
-    function updateTimelineProgress() {
-        const timeline = document.querySelector('.timeline');
-        if (!timeline) return;
-
-        const timelineItems = document.querySelectorAll('.timeline-item');
-        const scrollTop = window.pageYOffset;
-        const windowHeight = window.innerHeight;
-        
-        timelineItems.forEach((item, index) => {
-            const itemTop = item.offsetTop;
-            const itemHeight = item.offsetHeight;
-            
-            if (scrollTop + windowHeight > itemTop + itemHeight / 2) {
-                item.classList.add('animate-in');
-                setTimeout(() => {
-                    item.style.opacity = '1';
-                    item.style.transform = 'translateX(0)';
-                }, index * 200);
-            }
-        });
-    }
-
-    // Initialize timeline items
-    document.querySelectorAll('.timeline-item').forEach((item, index) => {
-        item.style.opacity = '0';
-        item.style.transform = index % 2 === 0 ? 'translateX(50px)' : 'translateX(-50px)';
-        item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    });
-
-    window.addEventListener('scroll', updateTimelineProgress);
 
     // Copy to clipboard functionality for code snippets (if any)
     document.querySelectorAll('.copy-btn').forEach(btn => {
@@ -264,5 +233,11 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('🚗 Clutch Protocol website loaded successfully!');
     console.log('💡 Built with modern web technologies for the decentralized future');
 });
+
+
+
+
+
+
 
 

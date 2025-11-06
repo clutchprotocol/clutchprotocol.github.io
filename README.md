@@ -54,7 +54,6 @@ clutchprotocol.github.io/
 - Navigation with mobile hamburger menu
 - Hero section with animated blockchain visualization
 - Feature cards with hover effects
-- Interactive timeline for roadmap
 - Fee comparison charts
 - Team member cards
 - Community action cards

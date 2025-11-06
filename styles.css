@@ -370,95 +370,6 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.6;
 }
 
-/* Roadmap Section */
-.roadmap {
-    padding: 100px 0;
-    background: #fff;
-}
-
-.timeline {
-    max-width: 800px;
-    margin: 0 auto;
-    position: relative;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 2px;
-    height: 100%;
-    background: #e0e0e0;
-}
-
-.timeline-item {
-    position: relative;
-    margin: 3rem 0;
-    display: flex;
-    align-items: center;
-}
-
-.timeline-item:nth-child(odd) {
-    flex-direction: row-reverse;
-}
-
-.timeline-marker {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: #e0e0e0;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-}
-
-.timeline-item.completed .timeline-marker {
-    background: #4CAF50;
-}
-
-.timeline-item.in-progress .timeline-marker {
-    background: #FF9800;
-}
-
-.timeline-content {
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    width: 45%;
-    margin: 0 2.5%;
-}
-
-.timeline-content h3 {
-    color: #1a1a1a;
-    margin-bottom: 0.5rem;
-}
-
-.timeline-content p {
-    color: #666;
-    margin-bottom: 1rem;
-}
-
-.timeline-status {
-    display: inline-block;
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 500;
-}
-
-.timeline-item.completed .timeline-status {
-    background: #E8F5E8;
-    color: #4CAF50;
-}
-
-.timeline-item.in-progress .timeline-status {
-    background: #FFF3E0;
-    color: #FF9800;
-}
-
 /* Tokenomics Section */
 .tokenomics {
     padding: 100px 0;
@@ -852,24 +763,6 @@ h1, h2, h3, h4, h5, h6 {
         transform: rotate(90deg);
     }
 
-    .timeline::before {
-        left: 20px;
-    }
-
-    .timeline-item {
-        flex-direction: row !important;
-        padding-left: 50px;
-    }
-
-    .timeline-marker {
-        left: 20px;
-        transform: translateX(-50%);
-    }
-
-    .timeline-content {
-        width: 100%;
-        margin: 0;
-    }
 
     .hero-buttons {
         justify-content: center;
