@@ -152,8 +152,8 @@
                     <div class="feature-icon">
                         <i class="fas fa-percentage"></i>
                     </div>
-                    <h3>Lower fees (target)</h3>
-                    <p>Design goal of 5–8% platform fees vs. 15–25% on traditional apps. Economics are not production-validated yet.</p>
+                    <h3>CLT economics</h3>
+                    <p>Drivers keep most of each fare. Referrers earn up to 4% (default 2%+2%) on RidePay. Validators earn a fixed block reward (50 CLT/block), separate from rides.</p>
                 </div>
 
                 <div class="feature-card">
@@ -233,51 +233,31 @@
         </div>
     </section>
 
-    <!-- Tokenomics Section -->
+    <!-- CLT Economics Section -->
     <section id="tokenomics" class="tokenomics">
         <div class="container">
-            <h2 class="section-title">Target fee model</h2>
-            <p class="section-subtitle">Design goal — not a guarantee of live production economics</p>
+            <h2 class="section-title">CLT economics</h2>
+            <p class="section-subtitle">Implemented on-chain in clutch-node (alpha)</p>
             <div class="tokenomics-content">
                 <div class="fee-breakdown">
-                    <h3>Example: $10 ride (target split)</h3>
+                    <h3>Example: 10 CLT ride (one RidePay, both referrers)</h3>
                     <div class="fee-example">
                         <div class="fee-bars">
                             <div class="fee-bar driver">
                                 <span class="fee-label">Driver</span>
-                                <span class="fee-amount">$9.00 (90%)</span>
+                                <span class="fee-amount">8 CLT</span>
                             </div>
                             <div class="fee-bar nodes">
-                                <span class="fee-label">Network nodes</span>
-                                <span class="fee-amount">$0.50 (5%)</span>
+                                <span class="fee-label">Request referrer</span>
+                                <span class="fee-amount">1 CLT (2%)</span>
                             </div>
                             <div class="fee-bar developers">
-                                <span class="fee-label">Development fund</span>
-                                <span class="fee-amount">$0.50 (5%)</span>
+                                <span class="fee-label">Offer referrer</span>
+                                <span class="fee-amount">1 CLT (2%)</span>
                             </div>
                         </div>
                     </div>
-                    <p class="fee-footnote">Referrer fees on RidePay are configured on the node (default 2% per side in deploy configs).</p>
-                </div>
-                <div class="comparison">
-                    <h3>vs. traditional platforms</h3>
-                    <div class="comparison-chart">
-                        <div class="platform">
-                            <h4>Traditional</h4>
-                            <div class="fee-circle traditional">
-                                <span class="percentage">15-25%</span>
-                                <span class="label">Platform fee</span>
-                            </div>
-                        </div>
-                        <div class="vs">vs</div>
-                        <div class="platform">
-                            <h4>Clutch (target)</h4>
-                            <div class="fee-circle clutch">
-                                <span class="percentage">5-8%</span>
-                                <span class="label">Total fee</span>
-                            </div>
-                        </div>
-                    </div>
+                    <p class="fee-footnote">Referrer fees apply per RidePay installment (configurable on the node). Validators earn a fixed block reward (default 50 CLT/block), not a share of ride fares. Details at <a href="https://docs.clutchprotocol.io/clutch-node/clt-economics">docs.clutchprotocol.io</a>.</p>
                 </div>
             </div>
         </div>
