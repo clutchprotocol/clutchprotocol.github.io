@@ -16,6 +16,31 @@ body {
     background: #fff;
 }
 
+/* Alpha status banner */
+.alpha-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+    background: #fef3c7;
+    color: #92400e;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    border-bottom: 1px solid #fcd34d;
+}
+
+.alpha-banner a {
+    color: #667eea;
+    font-weight: 600;
+    margin-left: 0.5rem;
+}
+
+.alpha-banner a:hover {
+    text-decoration: underline;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -102,7 +127,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Navigation */
 .navbar {
     position: fixed;
-    top: 0;
+    top: 36px;
     width: 100%;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
@@ -169,7 +194,7 @@ h1, h2, h3, h4, h5, h6 {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding-top: 70px;
+    padding-top: 106px;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
 
@@ -333,6 +358,98 @@ h1, h2, h3, h4, h5, h6 {
 .feature-card p {
     color: #666;
     line-height: 1.6;
+}
+
+.feature-card code {
+    font-size: 0.9em;
+    background: #f0f0f0;
+    padding: 0.1em 0.35em;
+    border-radius: 4px;
+}
+
+/* Try Stage Section */
+.try-stage {
+    padding: 100px 0;
+    background: white;
+}
+
+.try-stage-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.try-stage-card {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    border-radius: 12px;
+    padding: 2rem;
+}
+
+.try-stage-card h3 {
+    color: #667eea;
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+}
+
+.try-stage-card h3 i {
+    margin-right: 0.5rem;
+}
+
+.try-stage-steps {
+    margin: 0 0 1.5rem 1.25rem;
+    color: #444;
+    line-height: 1.8;
+}
+
+.try-stage-steps a {
+    color: #667eea;
+    font-weight: 500;
+}
+
+.try-stage-note {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    color: #666;
+}
+
+.try-stage-links {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 2rem;
+}
+
+.try-stage-links h3 {
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.try-stage-links ul {
+    list-style: none;
+}
+
+.try-stage-links li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e9ecef;
+    color: #666;
+}
+
+.try-stage-links li:last-child {
+    border-bottom: none;
+}
+
+.try-stage-links a {
+    color: #667eea;
+    word-break: break-all;
+}
+
+.fee-footnote {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    color: #666;
+    font-style: italic;
 }
 
 /* Architecture Section */
@@ -709,7 +826,7 @@ h1, h2, h3, h4, h5, h6 {
     .nav-menu {
         position: fixed;
         left: -100%;
-        top: 70px;
+        top: 106px;
         flex-direction: column;
         background-color: white;
         width: 100%;
@@ -766,6 +883,10 @@ h1, h2, h3, h4, h5, h6 {
 
     .hero-buttons {
         justify-content: center;
+    }
+
+    .try-stage-grid {
+        grid-template-columns: 1fr;
     }
 }
 

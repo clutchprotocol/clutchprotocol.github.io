@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
 
     // Observe elements for animation
-    const animateElements = document.querySelectorAll('.feature-card, .team-member, .community-card, .arch-component');
+    const animateElements = document.querySelectorAll('.feature-card, .team-member, .community-card, .arch-component, .try-stage-card, .try-stage-links');
     animateElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
@@ -230,8 +230,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    console.log('🚗 Clutch Protocol website loaded successfully!');
-    console.log('💡 Built with modern web technologies for the decentralized future');
+    console.log('Clutch Protocol website loaded.');
 });
 
 

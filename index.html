@@ -4,22 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clutch Protocol - Decentralized Ride-Sharing Blockchain</title>
-    <meta name="description" content="Clutch Protocol: Revolutionary decentralized ride-sharing blockchain cutting fees to 5-8%, enabling instant payouts and community governance.">
-    <meta name="keywords" content="blockchain, ride-sharing, decentralized, cryptocurrency, DeFi, transportation">
-    
+    <meta name="description" content="Alpha open-source ride-sharing blockchain. Try the public stage testnet, read the docs, or explore the code on GitHub.">
+    <meta name="keywords" content="blockchain, ride-sharing, decentralized, open source, testnet">
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://clutchprotocol.io/">
     <meta property="og:title" content="Clutch Protocol - Decentralized Ride-Sharing Blockchain">
-    <meta property="og:description" content="Revolutionary decentralized ride-sharing blockchain cutting fees to 5-8%, enabling instant payouts and community governance.">
-    <meta property="og:image" content="https://clutchprotocol.io/assets/og-image.png">
+    <meta property="og:description" content="Alpha open-source ride-sharing blockchain. Try the public stage testnet, read the docs, or explore the code on GitHub.">
+    <meta property="og:image" content="https://clutchprotocol.io/assets/og-image.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://clutchprotocol.io/">
     <meta property="twitter:title" content="Clutch Protocol - Decentralized Ride-Sharing Blockchain">
-    <meta property="twitter:description" content="Revolutionary decentralized ride-sharing blockchain cutting fees to 5-8%, enabling instant payouts and community governance.">
-    <meta property="twitter:image" content="https://clutchprotocol.io/assets/og-image.png">
+    <meta property="twitter:description" content="Alpha open-source ride-sharing blockchain. Try the public stage testnet, read the docs, or explore the code on GitHub.">
+    <meta property="twitter:image" content="https://clutchprotocol.io/assets/og-image.jpg">
 
     <link rel="canonical" href="https://clutchprotocol.io/">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -28,6 +28,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="alpha-banner" role="status">
+        <strong>Alpha software</strong> — public testnet for experimentation. APIs may change.
+        <a href="https://docs.clutchprotocol.io">Read the docs</a>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -37,10 +42,12 @@
             </div>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#try-stage" class="nav-link">Try Stage</a></li>
                 <li><a href="#features" class="nav-link">Features</a></li>
-                <li><a href="#tokenomics" class="nav-link">Tokenomics</a></li>
+                <li><a href="#tokenomics" class="nav-link">Fees</a></li>
                 <li><a href="#team" class="nav-link">Team</a></li>
                 <li><a href="#community" class="nav-link">Community</a></li>
+                <li><a href="https://docs.clutchprotocol.io" class="nav-link" target="_blank" rel="noopener">Docs</a></li>
             </ul>
             <div class="nav-toggle">
                 <span class="bar"></span>
@@ -55,31 +62,37 @@
         <div class="hero-container">
             <div class="hero-content">
                 <h1 class="hero-title">
-                    Revolutionizing Ride-Sharing with 
-                    <span class="gradient-text">Blockchain Technology</span>
+                    Decentralized ride-sharing on a
+                    <span class="gradient-text">custom blockchain</span>
                 </h1>
                 <p class="hero-description">
-                    Clutch Protocol cuts ride-sharing fees from 25% to just 5-8%, enables instant payouts, 
-                    and empowers users through decentralized governance. Built on a custom blockchain 
-                    targeting the $100B+ transportation market.
+                    Clutch Protocol is an open-source stack for on-chain ride operations: apps use a
+                    GraphQL Hub API and JavaScript SDK, sign transactions client-side, and settle rides
+                    on a Rust blockchain with Aura consensus.
                 </p>
                 <div class="hero-stats">
                     <div class="stat">
-                        <span class="stat-number">60%</span>
-                        <span class="stat-label">Fee Reduction</span>
+                        <span class="stat-number">Alpha</span>
+                        <span class="stat-label">Testnet live</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-number">$100B+</span>
-                        <span class="stat-label">Market Size</span>
+                        <span class="stat-number">9</span>
+                        <span class="stat-label">Open source repos</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-number">Instant</span>
-                        <span class="stat-label">Payouts</span>
+                        <span class="stat-number">On-chain</span>
+                        <span class="stat-label">Request to pay flow</span>
                     </div>
                 </div>
                 <div class="hero-buttons">
-                    <a href="https://github.com/clutchprotocol" class="btn btn-primary" target="_blank">
-                        <i class="fab fa-github"></i> View on GitHub
+                    <a href="https://app-stage.clutchprotocol.io" class="btn btn-primary" target="_blank" rel="noopener">
+                        <i class="fas fa-flask"></i> Try stage demo
+                    </a>
+                    <a href="https://docs.clutchprotocol.io" class="btn btn-secondary" target="_blank" rel="noopener">
+                        <i class="fas fa-book"></i> Documentation
+                    </a>
+                    <a href="https://github.com/clutchprotocol" class="btn btn-outline" target="_blank" rel="noopener">
+                        <i class="fab fa-github"></i> GitHub
                     </a>
                 </div>
             </div>
@@ -94,59 +107,93 @@
         </div>
     </section>
 
+    <!-- Try Stage Section -->
+    <section id="try-stage" class="try-stage">
+        <div class="container">
+            <h2 class="section-title">Try the network</h2>
+            <p class="section-subtitle">Use the public stage testnet — no install required</p>
+
+            <div class="try-stage-grid">
+                <div class="try-stage-card">
+                    <h3><i class="fas fa-play-circle"></i> Quick start</h3>
+                    <ol class="try-stage-steps">
+                        <li>Open <a href="https://app-stage.clutchprotocol.io" target="_blank" rel="noopener">app-stage.clutchprotocol.io</a></li>
+                        <li>Choose <strong>passenger</strong> or <strong>driver</strong> and generate a wallet</li>
+                        <li>Request test CLT from the built-in faucet</li>
+                        <li>As passenger: request a ride on the map. As driver: view requests and submit an offer</li>
+                    </ol>
+                    <a href="https://app-stage.clutchprotocol.io" class="btn btn-primary" target="_blank" rel="noopener">
+                        Open stage demo
+                    </a>
+                    <p class="try-stage-note">Testnet only — not production. Wallets and keys are for experimentation.</p>
+                </div>
+
+                <div class="try-stage-links">
+                    <h3>Stage endpoints</h3>
+                    <ul>
+                        <li><strong>Demo app:</strong> <a href="https://app-stage.clutchprotocol.io" target="_blank" rel="noopener">app-stage.clutchprotocol.io</a></li>
+                        <li><strong>Hub API:</strong> <a href="https://api-stage.clutchprotocol.io/health" target="_blank" rel="noopener">api-stage.clutchprotocol.io</a></li>
+                        <li><strong>Docs:</strong> <a href="https://docs.clutchprotocol.io/getting-started/environments" target="_blank" rel="noopener">Environments guide</a></li>
+                        <li><strong>SDK:</strong> <a href="https://www.npmjs.com/package/clutch-hub-sdk-js" target="_blank" rel="noopener">clutch-hub-sdk-js on npm</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Features Section -->
     <section id="features" class="features">
         <div class="container">
-            <h2 class="section-title">Why Clutch Protocol?</h2>
-            <p class="section-subtitle">Built for riders, drivers, and developers</p>
-            
+            <h2 class="section-title">What exists today</h2>
+            <p class="section-subtitle">Built for riders, drivers, and developers — alpha quality</p>
+
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-percentage"></i>
                     </div>
-                    <h3>Ultra-Low Fees</h3>
-                    <p>Reduce platform fees from 15-25% to just 5-8%, saving riders money and increasing driver earnings.</p>
+                    <h3>Lower fees (target)</h3>
+                    <p>Design goal of 5–8% platform fees vs. 15–25% on traditional apps. Economics are not production-validated yet.</p>
                 </div>
-                
+
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-bolt"></i>
+                        <i class="fas fa-coins"></i>
                     </div>
-                    <h3>Instant Payouts</h3>
-                    <p>Drivers receive payments immediately after ride completion, no more waiting days for your earnings.</p>
+                    <h3>On-chain payments</h3>
+                    <p>Passengers pay drivers in CLT via RidePay transactions. Partial payments are supported until the fare is covered.</p>
                 </div>
-                
+
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3>Transparent & Secure</h3>
-                    <p>All transactions are recorded on-chain with cryptographic security and full auditability.</p>
+                    <h3>Transparent and secure</h3>
+                    <p>Private keys stay on the client. Every ride step is a signed transaction recorded on-chain and auditable.</p>
                 </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Community Governance</h3>
-                    <p>DAO-driven decision making where users vote on platform changes, fee structures, and upgrades.</p>
-                </div>
-                
+
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-code"></i>
                     </div>
-                    <h3>Developer-Friendly</h3>
-                    <p>Comprehensive SDKs and APIs for easy integration and rapid application development.</p>
+                    <h3>Developer tools</h3>
+                    <p><code>clutch-hub-sdk-js</code> on npm, GraphQL Hub API, WebSocket subscriptions, and docs at docs.clutchprotocol.io.</p>
                 </div>
-                
+
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-globe"></i>
+                        <i class="fas fa-server"></i>
                     </div>
-                    <h3>Decentralized Network</h3>
-                    <p>No single point of failure with distributed nodes ensuring 24/7 availability and reliability.</p>
+                    <h3>Multi-node testnet</h3>
+                    <p>Aura consensus with multiple validator nodes on stage. Run the full stack locally with clutch-deploy.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <h3>Governance (planned)</h3>
+                    <p>Community DAO voting is on the roadmap. It is not implemented in the current codebase.</p>
                 </div>
             </div>
         </div>
@@ -155,70 +202,79 @@
     <!-- Architecture Section -->
     <section class="architecture">
         <div class="container">
-            <h2 class="section-title">Technical Architecture</h2>
+            <h2 class="section-title">Stack</h2>
+            <p class="section-subtitle">Open-source components you can run, read, and contribute to</p>
             <div class="architecture-grid">
                 <div class="arch-component">
                     <h3><i class="fas fa-server"></i> Clutch Node</h3>
-                    <p>Blockchain core with Aura consensus mechanism and custom transaction format for optimal performance.</p>
+                    <p>Blockchain core — Aura consensus, custom RLP transactions, WebSocket JSON-RPC. Rust.</p>
                 </div>
                 <div class="arch-component">
                     <h3><i class="fas fa-cloud"></i> Clutch Hub API</h3>
-                    <p>Application-to-node bridge providing GraphQL and REST endpoints for seamless integration.</p>
+                    <p>GraphQL bridge, wallet JWT auth, testnet faucet, and poll-based subscriptions. Rust.</p>
                 </div>
                 <div class="arch-component">
-                    <h3><i class="fas fa-tools"></i> Clutch SDK</h3>
-                    <p>JavaScript/TypeScript SDK for transaction signing, encoding, and blockchain interaction.</p>
+                    <h3><i class="fas fa-tools"></i> Clutch Hub SDK</h3>
+                    <p>JavaScript/TypeScript SDK for signing, queries, and subscriptions. Published on npm.</p>
                 </div>
                 <div class="arch-component">
                     <h3><i class="fas fa-mobile-alt"></i> Demo App</h3>
-                    <p>Reference implementation showcasing ride-sharing functionality and user experience.</p>
+                    <p>Reference React app with passenger and driver flows, map UI, and live updates.</p>
+                </div>
+                <div class="arch-component">
+                    <h3><i class="fas fa-search"></i> Clutch Explorer</h3>
+                    <p>Block indexer, REST API, and web UI for blocks, transactions, and accounts.</p>
+                </div>
+                <div class="arch-component">
+                    <h3><i class="fas fa-box"></i> Clutch Deploy</h3>
+                    <p>Docker Compose for nodes, API, demo, explorer, and monitoring — local or stage.</p>
                 </div>
             </div>
         </div>
     </section>
 
-
     <!-- Tokenomics Section -->
     <section id="tokenomics" class="tokenomics">
         <div class="container">
-            <h2 class="section-title">Fee Distribution Model</h2>
+            <h2 class="section-title">Target fee model</h2>
+            <p class="section-subtitle">Design goal — not a guarantee of live production economics</p>
             <div class="tokenomics-content">
                 <div class="fee-breakdown">
-                    <h3>Fair & Transparent Fee Structure</h3>
+                    <h3>Example: $10 ride (target split)</h3>
                     <div class="fee-example">
-                        <h4>Example: $10 Ride</h4>
                         <div class="fee-bars">
                             <div class="fee-bar driver">
-                                <span class="fee-label">Driver Earnings</span>
+                                <span class="fee-label">Driver</span>
                                 <span class="fee-amount">$9.00 (90%)</span>
                             </div>
                             <div class="fee-bar nodes">
-                                <span class="fee-label">Network Nodes</span>
+                                <span class="fee-label">Network nodes</span>
                                 <span class="fee-amount">$0.50 (5%)</span>
                             </div>
                             <div class="fee-bar developers">
-                                <span class="fee-label">Development Fund</span>
+                                <span class="fee-label">Development fund</span>
                                 <span class="fee-amount">$0.50 (5%)</span>
                             </div>
                         </div>
                     </div>
+                    <p class="fee-footnote">Referrer fees on RidePay are configured on the node (default 2% per side in deploy configs).</p>
                 </div>
                 <div class="comparison">
-                    <h3>vs. Traditional Platforms</h3>
+                    <h3>vs. traditional platforms</h3>
                     <div class="comparison-chart">
                         <div class="platform">
-                            <h4>Traditional Platforms</h4>
+                            <h4>Traditional</h4>
                             <div class="fee-circle traditional">
                                 <span class="percentage">15-25%</span>
-                                <span class="label">Platform Fee</span>
+                                <span class="label">Platform fee</span>
                             </div>
                         </div>
-                        <div class="vs">VS</div>
+                        <div class="vs">vs</div>
                         <div class="platform">
-                            <h4>Clutch Protocol</h4>
+                            <h4>Clutch (target)</h4>
                             <div class="fee-circle clutch">
                                 <span class="percentage">5-8%</span>
-                                <span class="label">Total Fee</span>
+                                <span class="label">Total fee</span>
                             </div>
                         </div>
                     </div>
@@ -230,20 +286,20 @@
     <!-- Team Section -->
     <section id="team" class="team">
         <div class="container">
-            <h2 class="section-title">Built by Experts</h2>
-            <p class="section-subtitle">Experienced team passionate about decentralization</p>
-            
+            <h2 class="section-title">Team</h2>
+            <p class="section-subtitle">Maintainer and contributors welcome</p>
+
             <div class="team-grid">
                 <div class="team-member">
                     <div class="member-avatar">
                         <i class="fas fa-user-circle"></i>
                     </div>
                     <h3>Mehran Mazhar</h3>
-                    <p class="member-role">Founder & Lead Developer</p>
-                    <p class="member-bio">Blockchain architect with expertise in consensus mechanisms and distributed systems.</p>
+                    <p class="member-role">Founder and lead developer</p>
+                    <p class="member-bio">Builds the Clutch node, Hub API, SDK, and demo app. Contributions via GitHub are welcome.</p>
                     <div class="member-links">
-                        <a href="https://github.com/mehranmazhar" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://linkedin.com/in/mehranmazhar" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/MehranMazhar" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/mehranmazhar" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
             </div>
@@ -253,29 +309,29 @@
     <!-- Community Section -->
     <section id="community" class="community">
         <div class="container">
-            <h2 class="section-title">Join the Revolution</h2>
-            <p class="section-subtitle">Be part of the decentralized transportation future</p>
-            
+            <h2 class="section-title">Community</h2>
+            <p class="section-subtitle">Open source — issues, discussions, and pull requests</p>
+
             <div class="community-grid">
                 <div class="community-card">
                     <i class="fab fa-github"></i>
-                    <h3>Open Source</h3>
-                    <p>Contribute to the codebase, report issues, and help build the future of ride-sharing.</p>
-                    <a href="https://github.com/clutchprotocol" class="btn btn-outline" target="_blank">View on GitHub</a>
+                    <h3>Source code</h3>
+                    <p>Nine public repositories — node, API, SDK, demo, explorer, deploy, and docs.</p>
+                    <a href="https://github.com/clutchprotocol" class="btn btn-outline" target="_blank" rel="noopener">View on GitHub</a>
                 </div>
-                
+
                 <div class="community-card">
                     <i class="fas fa-comments"></i>
                     <h3>Discussions</h3>
-                    <p>Join technical discussions, share ideas, and connect with other developers.</p>
-                    <a href="https://github.com/clutchprotocol/clutchprotocol.github.io/discussions" class="btn btn-outline" target="_blank">Join Discussion</a>
+                    <p>Ask questions, share ideas, and connect with other developers on GitHub.</p>
+                    <a href="https://github.com/orgs/clutchprotocol/discussions" class="btn btn-outline" target="_blank" rel="noopener">Join discussion</a>
                 </div>
-                
+
                 <div class="community-card">
                     <i class="fas fa-book"></i>
                     <h3>Documentation</h3>
-                    <p>Comprehensive guides, API references, and tutorials for developers.</p>
-                    <a href="https://docs.clutchprotocol.io" class="btn btn-outline">Read Docs</a>
+                    <p>Quick start, ride lifecycle guide, GraphQL reference, and deployment docs.</p>
+                    <a href="https://docs.clutchprotocol.io" class="btn btn-outline" target="_blank" rel="noopener">Read docs</a>
                 </div>
             </div>
         </div>
@@ -290,23 +346,23 @@
                         <i class="fas fa-car-side"></i>
                         <span>Clutch Protocol</span>
                     </div>
-                    <p>Decentralizing ride-sharing through blockchain technology.</p>
+                    <p>Open-source ride-sharing blockchain. Alpha testnet available on stage.</p>
                     <div class="social-links">
-                        <a href="https://github.com/clutchprotocol" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://twitter.com/clutchprotocol" target="_blank"><i class="fab fa-twitter"></i></a>
-                        <a href="https://discord.gg/clutchprotocol" target="_blank"><i class="fab fa-discord"></i></a>
+                        <a href="https://github.com/clutchprotocol" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="mailto:hello@clutchprotocol.io" aria-label="Email"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="footer-section">
-                    <h4>Product</h4>
+                    <h4>Try it</h4>
                     <ul>
+                        <li><a href="https://app-stage.clutchprotocol.io" target="_blank" rel="noopener">Stage demo</a></li>
+                        <li><a href="https://demo.clutchprotocol.io" target="_blank" rel="noopener">Production demo</a></li>
                         <li><a href="#features">Features</a></li>
-                        <li><a href="#tokenomics">Tokenomics</a></li>
-                        <li><a href="https://demo.clutchprotocol.io">Demo</a></li>
+                        <li><a href="#tokenomics">Fee model</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
                     <h4>Developers</h4>
                     <ul>
@@ -314,23 +370,24 @@
                         <li><a href="https://github.com/clutchprotocol">GitHub</a></li>
                         <li><a href="https://github.com/clutchprotocol/clutch-hub-sdk-js">SDK</a></li>
                         <li><a href="https://github.com/clutchprotocol/clutch-hub-api">API</a></li>
+                        <li><a href="https://github.com/clutchprotocol/clutch-deploy">Deploy</a></li>
+                        <li><a href="https://github.com/clutchprotocol/clutch-explorer">Explorer</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
                     <h4>Community</h4>
                     <ul>
-                        <li><a href="https://github.com/clutchprotocol/clutchprotocol.github.io/discussions">Discussions</a></li>
-                        <li><a href="https://discord.gg/clutchprotocol">Discord</a></li>
+                        <li><a href="https://github.com/orgs/clutchprotocol/discussions">Discussions</a></li>
                         <li><a href="#team">Team</a></li>
                         <li><a href="mailto:hello@clutchprotocol.io">Contact</a></li>
                     </ul>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
-                <p>&copy; 2025 Clutch Protocol. Open source under MIT License.</p>
-                <p>Built with ❤️ for the decentralized future</p>
+                <p>&copy; 2026 Clutch Protocol. Open source under MIT License.</p>
+                <p>Alpha software — use at your own risk.</p>
             </div>
         </div>
     </footer>

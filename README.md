@@ -2,10 +2,14 @@
 
 Official website for Clutch Protocol - Decentralized ride-sharing blockchain.
 
-## 🌐 Live Site
+## Live Site
 
 - **Production**: [clutchprotocol.io](https://clutchprotocol.io)
+- **Stage demo (testnet)**: [app-stage.clutchprotocol.io](https://app-stage.clutchprotocol.io)
+- **Documentation**: [docs.clutchprotocol.io](https://docs.clutchprotocol.io)
 - **GitHub Pages**: [clutchprotocol.github.io](https://clutchprotocol.github.io)
+
+Alpha software — the stage testnet is for experimentation. APIs may change.
 
 ## 🚀 Features
 
@@ -30,8 +34,9 @@ clutchprotocol.github.io/
 ├── index.html          # Main HTML file
 ├── styles.css          # All CSS styles
 ├── script.js           # JavaScript functionality
+├── assets/
+│   └── og-image.jpg    # Open Graph / social preview image
 ├── CNAME              # Custom domain configuration
-├── .nojekyll          # Disable Jekyll processing
 ├── favicon.ico        # Site favicon
 └── README.md          # This file
 ```
@@ -148,11 +153,12 @@ Use conventional commits:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🔗 Links
+## Links
 
-- **Main Repository**: [Clutch Protocol](https://github.com/clutchprotocol)
+- **Organization**: [github.com/clutchprotocol](https://github.com/clutchprotocol)
 - **Documentation**: [docs.clutchprotocol.io](https://docs.clutchprotocol.io)
-- **Demo App**: [demo.clutchprotocol.io](https://demo.clutchprotocol.io)
+- **Stage demo**: [app-stage.clutchprotocol.io](https://app-stage.clutchprotocol.io)
+- **Production demo**: [demo.clutchprotocol.io](https://demo.clutchprotocol.io)
 
 ## 📧 Contact
 
