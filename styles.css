@@ -452,6 +452,36 @@ h1, h2, h3, h4, h5, h6 {
     font-style: italic;
 }
 
+.fee-developer-callout {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+    border-left: 4px solid #667eea;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.fee-developer-callout h4 {
+    margin-bottom: 0.75rem;
+    color: #667eea;
+    font-size: 1.1rem;
+}
+
+.fee-developer-callout h4 i {
+    margin-right: 0.5rem;
+}
+
+.fee-developer-callout p {
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+}
+
 /* Architecture Section */
 .architecture {
     padding: 100px 0;
