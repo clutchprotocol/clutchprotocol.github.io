@@ -9,6 +9,46 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Skip link for keyboard users */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 2000;
+    background: #667eea;
+    color: #fff;
+    padding: 0.75rem 1rem;
+    border-radius: 0 0 8px 0;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.skip-link:focus {
+    left: 0;
+}
+
+/* Visible focus indicator for keyboard users */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+.nav-toggle:focus-visible .bar {
+    outline: 3px solid #667eea;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+.nav-toggle {
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+/* Offset anchor targets so section headers are not hidden behind the fixed banner + nav */
+section[id],
+.architecture {
+    scroll-margin-top: 110px;
+}
+
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
@@ -517,6 +557,29 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.6;
 }
 
+.arch-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.25rem;
+}
+
+.arch-links a {
+    color: #667eea;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 0.35rem 0.75rem;
+    border: 1px solid rgba(102, 126, 234, 0.3);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.arch-links a:hover {
+    background: #667eea;
+    color: white;
+}
+
 /* Tokenomics Section */
 .tokenomics {
     padding: 100px 0;
@@ -525,9 +588,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .tokenomics-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 4rem;
     align-items: center;
+    max-width: 720px;
+    margin: 0 auto;
 }
 
 .fee-breakdown h3 {
@@ -569,7 +634,7 @@ h1, h2, h3, h4, h5, h6 {
     color: #2E7D32;
 }
 
-.fee-bar.nodes {
+.fee-bar.referrer {
     background: #E3F2FD;
     color: #1976D2;
 }
@@ -579,65 +644,152 @@ h1, h2, h3, h4, h5, h6 {
     color: #7B1FA2;
 }
 
-.comparison {
-    text-align: center;
-}
-
-.comparison-chart {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 2rem;
-}
-
-.platform h4 {
-    margin-bottom: 1rem;
-    color: #1a1a1a;
-}
-
-.fee-circle {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.fee-circle.traditional {
-    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
-    color: white;
-}
-
-.fee-circle.clutch {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-}
-
-.fee-circle .percentage {
-    font-size: 2rem;
-    font-weight: 700;
-}
-
-.fee-circle .label {
-    font-size: 0.9rem;
-    opacity: 0.9;
-}
-
-.vs {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #667eea;
-}
-
 /* Team Section */
 .team {
     padding: 100px 0;
     background: #fff;
 }
+
+/* Roadmap Section */
+.roadmap {
+    padding: 100px 0;
+    background: #fff;
+}
+
+.roadmap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+}
+
+.roadmap-card {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 1.75rem;
+    border-top: 4px solid #667eea;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.roadmap-card.done {
+    border-top-color: #2E7D32;
+}
+
+.roadmap-card.planned {
+    border-top-color: #667eea;
+}
+
+.roadmap-status {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    margin-bottom: 0.75rem;
+}
+
+.roadmap-card.done .roadmap-status {
+    background: #E8F5E8;
+    color: #2E7D32;
+}
+
+.roadmap-card.planned .roadmap-status {
+    background: #E3F2FD;
+    color: #1976D2;
+}
+
+.roadmap-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #1a1a1a;
+}
+
+.roadmap-card p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.roadmap-note {
+    text-align: center;
+    margin-top: 2rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.roadmap-note a {
+    color: #667eea;
+    font-weight: 500;
+}
+
+/* FAQ Section */
+.faq {
+    padding: 100px 0;
+    background: #f8f9fa;
+}
+
+.faq-list {
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.faq-item {
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #e9ecef;
+    padding: 1rem 1.25rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.faq-item summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: #1a1a1a;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary::after {
+    content: '+';
+    color: #667eea;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.faq-item[open] summary::after {
+    content: '−';
+}
+
+.faq-item p {
+    margin-top: 0.75rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+.faq-more {
+    text-align: center;
+    margin-top: 2rem;
+    color: #666;
+}
+
+.faq-more a {
+    color: #667eea;
+    font-weight: 500;
+}
+
+/* Team Section */
 
 .team-grid {
     display: grid;
@@ -897,17 +1049,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .tokenomics-content {
-        grid-template-columns: 1fr;
         gap: 2rem;
-    }
-
-    .comparison-chart {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .vs {
-        transform: rotate(90deg);
     }
 
 
@@ -939,6 +1081,38 @@ h1, h2, h3, h4, h5, h6 {
     .community-card,
     .team-member {
         padding: 1.5rem;
+    }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .block {
+        animation: none !important;
+    }
+
+    .feature-card,
+    .team-member,
+    .community-card,
+    .arch-component,
+    .try-stage-card,
+    .try-stage-links {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+
+    .btn,
+    .feature-card,
+    .team-member,
+    .community-card,
+    .member-links a,
+    .social-links a,
+    .arch-links a {
+        transition: none !important;
     }
 }
 

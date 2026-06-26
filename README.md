@@ -11,13 +11,13 @@ Official website for Clutch Protocol - Decentralized ride-sharing blockchain.
 
 Alpha software — the stage testnet is for experimentation. APIs may change.
 
-## 🚀 Features
+## Features
 
 - **Responsive Design**: Mobile-first approach with modern UI/UX
-- **Performance Optimized**: Fast loading with lazy loading and efficient animations
-- **SEO Friendly**: Comprehensive meta tags and structured data
-- **Accessibility**: WCAG compliant with proper semantic HTML
-- **Interactive Elements**: Smooth scrolling, animations, and micro-interactions
+- **Performance Optimized**: Font preconnect, minimal JS, efficient animations
+- **SEO Friendly**: Open Graph, Twitter Card, JSON-LD structured data, sitemap and robots.txt
+- **Accessibility**: Semantic HTML, skip link, focus-visible styles, `prefers-reduced-motion` support, ARIA labels
+- **Interactive Elements**: Smooth scrolling, scroll-reveal animations, accordion FAQ, mobile nav
 
 ## 🛠️ Technology Stack
 
@@ -36,7 +36,10 @@ clutchprotocol.github.io/
 ├── script.js           # JavaScript functionality
 ├── assets/
 │   └── og-image.jpg    # Open Graph / social preview image
+├── robots.txt          # Crawler rules + sitemap reference
+├── sitemap.xml         # Sitemap
 ├── CNAME              # Custom domain configuration
+├── LICENSE            # MIT License
 ├── favicon.ico        # Site favicon
 └── README.md          # This file
 ```
@@ -56,10 +59,12 @@ clutchprotocol.github.io/
 - **Code**: Monospace
 
 ### Components
-- Navigation with mobile hamburger menu
+- Navigation with mobile hamburger menu (button + ARIA)
 - Hero section with animated blockchain visualization
 - Feature cards with hover effects
-- Fee comparison charts
+- CLT fee breakdown bars
+- Roadmap milestone cards
+- FAQ accordion
 - Team member cards
 - Community action cards
 
@@ -114,23 +119,24 @@ To point `clutchprotocol.io` to GitHub Pages:
 ## 🔧 Features & Functionality
 
 ### Interactive Elements
-- Mobile-responsive navigation
-- Smooth scrolling between sections
-- Intersection Observer animations
+- Mobile-responsive navigation (button toggle with `aria-expanded`)
+- Smooth scrolling between sections (CSS `scroll-behavior` + `scroll-margin-top`)
+- Intersection Observer scroll-reveal animations
 - Blockchain block hover effects
-- Timeline progress indicators
+- FAQ accordion (`<details>`)
 
 ### Performance Features
-- Lazy loading for images
-- Optimized CSS animations
+- Font Awesome and Google Fonts preconnect
+- Animations disabled under `prefers-reduced-motion`
 - Minimal JavaScript bundle
 - Efficient DOM manipulation
 
 ### SEO & Meta
 - Open Graph tags for social sharing
-- Twitter Card meta tags
-- Structured data markup
-- Semantic HTML structure
+- Twitter Card meta tags (`name=` attributes)
+- JSON-LD structured data (Organization + WebSite)
+- `robots.txt` and `sitemap.xml`
+- Semantic HTML structure with `<main>` landmark
 
 ## 🤝 Contributing
 

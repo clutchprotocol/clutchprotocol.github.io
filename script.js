@@ -6,12 +6,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Toggle mobile menu
     navToggle.addEventListener('click', function() {
-        navMenu.classList.toggle('active');
-        
+        const isOpen = navMenu.classList.toggle('active');
+        navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+
         // Animate hamburger menu
         const bars = navToggle.querySelectorAll('.bar');
         bars.forEach((bar, index) => {
-            if (navMenu.classList.contains('active')) {
+            if (isOpen) {
                 if (index === 0) bar.style.transform = 'rotate(-45deg) translate(-5px, 6px)';
                 if (index === 1) bar.style.opacity = '0';
                 if (index === 2) bar.style.transform = 'rotate(45deg) translate(-5px, -6px)';
@@ -25,7 +26,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Close mobile menu when clicking on links
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
+            const wasOpen = navMenu.classList.contains('active');
             navMenu.classList.remove('active');
+            if (wasOpen) {
+                navToggle.setAttribute('aria-expanded', 'false');
+            }
             const bars = navToggle.querySelectorAll('.bar');
             bars.forEach(bar => {
                 bar.style.transform = '';
@@ -34,23 +39,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                const headerOffset = 70;
-                const elementPosition = target.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
+    // Smooth scrolling is handled by CSS scroll-behavior: smooth
+    // and scroll-margin-top on section targets; no JS override needed.
 
     // Navbar background on scroll
     window.addEventListener('scroll', function() {
@@ -63,6 +53,8 @@ document.addEventListener('DOMContentLoaded', function() {
             navbar.style.boxShadow = 'none';
         }
     });
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     // Animate elements on scroll
     const observerOptions = {
@@ -79,14 +71,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
 
-    // Observe elements for animation
+    // Observe elements for animation (skip when reduced motion is preferred)
     const animateElements = document.querySelectorAll('.feature-card, .team-member, .community-card, .arch-component, .try-stage-card, .try-stage-links');
-    animateElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
+    if (!prefersReducedMotion) {
+        animateElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    }
 
     // Counter animation for stats
     function animateCounter(element, target, duration = 2000) {
@@ -147,31 +141,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 
-    // Copy to clipboard functionality for code snippets (if any)
-    document.querySelectorAll('.copy-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const code = this.parentElement.querySelector('code');
-            if (code) {
-                navigator.clipboard.writeText(code.textContent).then(() => {
-                    this.textContent = 'Copied!';
-                    setTimeout(() => {
-                        this.textContent = 'Copy';
-                    }, 2000);
-                });
-            }
-        });
-    });
-
-    // Form handling (if contact form is added later)
-    const forms = document.querySelectorAll('form');
-    forms.forEach(form => {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Add form submission logic here
-            console.log('Form submitted');
-        });
-    });
-
     // Easter egg: Konami code
     let konamiCode = [];
     const konamiSequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]; // Up Up Down Down Left Right Left Right B A
@@ -192,43 +161,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Performance optimization: Lazy load images when added
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src;
-                    img.classList.remove('lazy');
-                    imageObserver.unobserve(img);
-                }
-            });
-        });
+    // External links open in a new tab via target="_blank"; no destructive
+    // innerHTML spinner (it broke icon markup and flashed "Opening…").
 
-        document.querySelectorAll('img[data-src]').forEach(img => {
-            imageObserver.observe(img);
+    // Add subtle parallax effect to hero section (skip when reduced motion is preferred)
+    if (!prefersReducedMotion) {
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const heroVisual = document.querySelector('.hero-visual');
+            if (heroVisual && scrolled < window.innerHeight) {
+                heroVisual.style.transform = `translateY(${scrolled * 0.3}px)`;
+            }
         });
     }
-
-    // Add loading state for external links
-    document.querySelectorAll('a[target="_blank"]').forEach(link => {
-        link.addEventListener('click', function() {
-            const originalText = this.innerHTML;
-            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Opening...';
-            setTimeout(() => {
-                this.innerHTML = originalText;
-            }, 1000);
-        });
-    });
-
-    // Add subtle parallax effect to hero section
-    window.addEventListener('scroll', function() {
-        const scrolled = window.pageYOffset;
-        const heroVisual = document.querySelector('.hero-visual');
-        if (heroVisual && scrolled < window.innerHeight) {
-            heroVisual.style.transform = `translateY(${scrolled * 0.3}px)`;
-        }
-    });
 
     console.log('Clutch Protocol website loaded.');
 });
