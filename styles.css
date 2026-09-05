@@ -675,6 +675,14 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--ink);
 }
 
+/* The peg, stated once directly above the numbers that depend on it. Without it "4,800,000 CLT"
+ * reads as a wildly inflated fare rather than $4.80. */
+.fee-peg {
+    color: var(--muted);
+    font-size: 0.9375rem;
+    margin: -0.5rem 0 1.25rem;
+}
+
 .fee-example {
     background: white;
     padding: 2rem;

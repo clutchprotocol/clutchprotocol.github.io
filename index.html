@@ -157,7 +157,7 @@
                     <ol class="try-stage-steps">
                         <li>Open <a href="https://app-stage.clutchprotocol.io" target="_blank" rel="noopener">app-stage.clutchprotocol.io</a></li>
                         <li>Choose <strong>passenger</strong> or <strong>driver</strong> and generate a wallet</li>
-                        <li>Request test CLT from the built-in faucet</li>
+                        <li>Open the menu and choose <strong>Top up with USDT</strong>, then send Nile testnet USDT to the address it shows — the treasury mints the matching CLT to your wallet</li>
                         <li>As passenger: request a ride on the map. As driver: view requests and submit an offer</li>
                     </ol>
                     <a href="https://app-stage.clutchprotocol.io" class="btn btn-primary" target="_blank" rel="noopener">
@@ -192,7 +192,7 @@
                         <i class="fas fa-percentage" aria-hidden="true"></i>
                     </div>
                     <h3>CLT economics</h3>
-                    <p>Drivers keep most of each fare. Referrers earn up to 4% (default 2%+2%) on RidePay. Validators earn a fixed block reward (50 CLT/block), separate from rides.</p>
+                    <p>CLT is a micro-dollar: 1 USD = 1,000,000 CLT, fully reserved. Drivers keep most of each fare, referrers earn up to 4% (default 2%+2%) on RidePay, and validators are paid a flat $0.001 fee per transaction rather than a block reward.</p>
                 </div>
 
                 <div class="feature-card">
@@ -247,7 +247,7 @@
                 </div>
                 <div class="arch-component">
                     <h3><i class="fas fa-cloud" aria-hidden="true"></i> Clutch Hub API</h3>
-                    <p>GraphQL bridge, wallet JWT auth, testnet faucet, and poll-based subscriptions. Rust.</p>
+                    <p>GraphQL bridge, wallet JWT auth, and poll-based subscriptions. Rust.</p>
                     <div class="arch-links">
                         <a href="https://github.com/clutchprotocol/clutch-hub-api" target="_blank" rel="noopener">GitHub</a>
                         <a href="https://docs.clutchprotocol.io/clutch-hub-api/overview" target="_blank" rel="noopener">Docs</a>
@@ -296,24 +296,25 @@
             <p class="section-subtitle">Implemented on-chain in clutch-node (alpha)</p>
             <div class="tokenomics-content">
                 <div class="fee-breakdown">
-                    <h3>Example: 10 CLT ride (one RidePay, both referrers)</h3>
+                    <h3>Example: $5.00 fare (one RidePay, both referrers)</h3>
+                    <p class="fee-peg">CLT is an integer micro-dollar — 1 USD = 1,000,000 CLT — so a $5.00 fare is 5,000,000 CLT.</p>
                     <div class="fee-example">
                         <div class="fee-bars">
                             <div class="fee-bar driver">
                                 <span class="fee-label">Driver</span>
-                                <span class="fee-amount">8 CLT</span>
+                                <span class="fee-amount">4,800,000 CLT ($4.80)</span>
                             </div>
                             <div class="fee-bar referrer">
                                 <span class="fee-label">Request referrer</span>
-                                <span class="fee-amount">1 CLT (2%)</span>
+                                <span class="fee-amount">100,000 CLT ($0.10, 2%)</span>
                             </div>
                             <div class="fee-bar developers">
                                 <span class="fee-label">Offer referrer</span>
-                                <span class="fee-amount">1 CLT (2%)</span>
+                                <span class="fee-amount">100,000 CLT ($0.10, 2%)</span>
                             </div>
                         </div>
                     </div>
-                    <p class="fee-footnote">Referrer fees apply per RidePay installment (configurable on the node). Validators earn a fixed block reward (default 50 CLT/block), not a share of ride fares. Details at <a href="https://docs.clutchprotocol.io/clutch-node/clt-economics">docs.clutchprotocol.io</a>.</p>
+                    <p class="fee-footnote">Referrer fees apply per RidePay installment, in basis points with floor rounding, and the driver's share is the exact remainder — the three always sum to the fare. Validators are not paid from fares at all: every non-exempt transaction pays a flat 1,000 CLT ($0.001) to the block author. There are no block rewards, because minting unbacked CLT to pay validators would break the 1:1 reserve. Details at <a href="https://docs.clutchprotocol.io/clutch-node/clt-economics">docs.clutchprotocol.io</a>.</p>
                     <div class="fee-developer-callout">
                         <h4><i class="fas fa-laptop-code" aria-hidden="true"></i> For app developers</h4>
                         <p>Deploy your own app with the SDK and Hub API, set your wallet as the ride referrer in Hub config, and earn up to <strong>4% CLT per RidePay</strong> (default 2% request + 2% offer) when passengers pay drivers on your deployment. No separate grants — rewards come from real ride activity on-chain.</p>
@@ -366,11 +367,11 @@
                 </details>
                 <details class="faq-item">
                     <summary>How do drivers get paid?</summary>
-                    <p>Drivers receive CLT via RidePay transactions. Referrers earn up to 4% (default 2% request + 2% offer) per payment installment and the driver gets the remainder. Validators earn a fixed block reward, separate from ride fares.</p>
+                    <p>Drivers receive CLT via RidePay transactions. Referrers earn up to 4% (default 2% request + 2% offer) per payment installment and the driver gets the exact remainder. Validators take no share of a fare — they are paid a flat $0.001 fee on every non-exempt transaction, credited to whoever authored the block.</p>
                 </details>
                 <details class="faq-item">
                     <summary>Are private keys safe?</summary>
-                    <p>Keys never leave the client. The SDK signs transactions locally (secp256k1, Keccak-256) and only submits signed RLP hex to the Hub API. The faucet is the only server-side signer, on testnet only.</p>
+                    <p>Keys never leave the client. The SDK signs transactions locally (secp256k1, Keccak-256) and only submits signed RLP hex to the Hub API. The one server-side signer is the treasury's mint authority, which signs the Mint crediting a USDT deposit it has already verified on Tron — it can create CLT against a deposit and nothing else.</p>
                 </details>
                 <details class="faq-item">
                     <summary>Can I build an app and earn CLT?</summary>
