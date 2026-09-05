@@ -83,20 +83,43 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Counter animation for stats
-    function animateCounter(element, target, duration = 2000) {
-        let start = 0;
-        const increment = target / (duration / 16);
-        
-        function updateCounter() {
-            start += increment;
-            if (start < target) {
-                element.textContent = Math.floor(start);
+    // Counts to `target`, then writes `finalText` — the original string, suffix and all.
+    //
+    // Driven by elapsed time rather than a fixed per-frame increment. The old version added
+    // target/125 on every frame and assumed 60fps, so anywhere frames come slower — a background
+    // tab, a throttled or busy device — it was still counting long after it should have finished.
+    // A caller's separate 2s timer then restored the real number and the still-running loop
+    // overwrote it with whatever it had reached. The hero stat could sit on "1" forever.
+    function animateCounter(element, target, finalText, duration = 2000) {
+        const startedAt = performance.now();
+        let settled = false;
+
+        // Whoever gets here first wins, and the other path then does nothing. That flag is the
+        // actual fix: the old code had a timer restoring the real number in parallel with a
+        // running animation, so on slow frames the animation overwrote it and the stat sat on a
+        // half-counted value.
+        function settle() {
+            if (settled) return;
+            settled = true;
+            element.textContent = finalText;
+        }
+
+        function updateCounter(now) {
+            if (settled) return;
+            const progress = Math.min((now - startedAt) / duration, 1);
+            if (progress < 1) {
+                element.textContent = Math.floor(target * progress);
                 requestAnimationFrame(updateCounter);
             } else {
-                element.textContent = target;
+                settle();
             }
         }
-        updateCounter();
+
+        requestAnimationFrame(updateCounter);
+        // Safety net, not a second animator. requestAnimationFrame does not run in a hidden tab
+        // while IntersectionObserver still can, so the animation may never start at all — and
+        // without this the stat would be stuck showing the "0" placeholder rather than its value.
+        setTimeout(settle, duration + 100);
     }
 
     // Animate stats when they come into view
@@ -110,11 +133,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 const number = parseInt(text.replace(/[^\d]/g, ''));
                 if (!isNaN(number) && number > 0) {
                     statNumber.textContent = '0' + text.replace(/\d+/, '');
-                    animateCounter(statNumber, number);
-                    // Add back the suffix after animation
-                    setTimeout(() => {
-                        statNumber.textContent = text;
-                    }, 2000);
+                    // The original text goes in as an argument. It used to be restored by a
+                    // parallel setTimeout, which raced the animation and lost on slow frames.
+                    animateCounter(statNumber, number, text);
                 }
                 
                 statsObserver.unobserve(entry.target);
