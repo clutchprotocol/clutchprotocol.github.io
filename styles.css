@@ -80,7 +80,11 @@ summary:focus-visible,
 .nav-toggle {
     background: transparent;
     border: none;
-    padding: 0;
+    /* The three bars are only 25x27, which is well under the 44px minimum for a touch target and
+     * makes this fiddly to hit on a phone — where it is the ONLY way to reach the nav. Padding
+     * grows the hit area; the negative margin keeps the icon optically where it was. */
+    padding: 10px;
+    margin-right: -10px;
 }
 
 /* Offset anchor targets so section headers are not hidden behind the fixed banner + nav */
@@ -823,11 +827,14 @@ h1, h2, h3, h4, h5, h6 {
     gap: 1rem;
 }
 
+/* Vertical padding lives on the <summary>, not here. Only the summary toggles a <details>, so
+ * padding on this element looked like part of the row but was dead to a tap — the actual target
+ * was the 26px line of text inside it, well under the 44px minimum on a phone. */
 .faq-item {
     background: white;
     border-radius: 10px;
-    border: 1px solid #e9ecef;
-    padding: 1rem 1.25rem;
+    border: 1px solid var(--line);
+    padding: 0 1.25rem;
     box-shadow: var(--shadow-sm);
 }
 
@@ -840,6 +847,8 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
+    /* Takes the row's full height, so the whole row is tappable rather than just its text. */
+    padding: 1rem 0;
 }
 
 .faq-item summary::-webkit-details-marker {
@@ -859,7 +868,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .faq-item p {
-    margin-top: 0.75rem;
+    margin-top: -0.25rem;
+    padding-bottom: 1rem;
     color: var(--muted);
     line-height: 1.6;
 }
@@ -1169,6 +1179,19 @@ h1, h2, h3, h4, h5, h6 {
     .community-card,
     .team-member {
         padding: 1.5rem;
+    }
+
+    /* The amount now carries a CLT figure AND its dollar value, which will not sit beside the
+     * label at this width: measured at 390px they ended up touching with zero gap, and the amount
+     * wrapped onto a second line inside a row built for one. Stack them instead. */
+    .fee-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.15rem;
+    }
+
+    .fee-amount {
+        font-weight: 600;
     }
 }
 
