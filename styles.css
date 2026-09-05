@@ -5,6 +5,46 @@
     box-sizing: border-box;
 }
 
+/* Design tokens
+ *
+ * Added in the 2026 refresh. The palette used to be repeated literally in sixty-odd places, so a
+ * colour change meant a search-and-replace across the whole file and a fair chance of missing one.
+ * Change a value here instead.
+ */
+:root {
+    /* Ink. Near-black rather than the old near-grey: at large sizes it reads sharper, and the body
+     * tone is warmed slightly so it does not look washed out beside it. */
+    --ink: #0b0e14;
+    --body: #3f4653;
+    --muted: #667085;
+
+    /* Accent. The old pair was a washed lavender that dated the whole page on its own. Same family,
+     * deeper and more saturated, so links and buttons carry weight against white. */
+    --accent: #4f46e5;
+    --accent-2: #7c3aed;
+    --accent-hover: #4338ca;
+    --accent-soft: #eef2ff;
+    --accent-rgb: 79, 70, 229;
+
+    --surface: #ffffff;
+    --surface-alt: #f7f8fb;
+    --line: #e6e8ef;
+
+    /* Cards are borders first, shadows second. A 40px drop shadow on every card at rest made the
+     * page feel like it was coming apart; a hairline, with the shadow kept for hover, reads calmer
+     * and much more current. */
+    --r-sm: 8px;
+    --r-md: 10px;
+    --r-lg: 14px;
+    --r-xl: 18px;
+    --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.04);
+    --shadow-md: 0 8px 24px rgba(16, 24, 40, 0.08);
+    --shadow-lg: 0 18px 48px rgba(16, 24, 40, 0.12);
+
+    /* Vertical rhythm. A fixed 100px was cramped on phones and mean on wide screens. */
+    --section-y: clamp(64px, 8vw, 104px);
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -15,7 +55,7 @@ html {
     left: -9999px;
     top: 0;
     z-index: 2000;
-    background: #667eea;
+    background: var(--accent);
     color: #fff;
     padding: 0.75rem 1rem;
     border-radius: 0 0 8px 0;
@@ -32,7 +72,7 @@ a:focus-visible,
 button:focus-visible,
 summary:focus-visible,
 .nav-toggle:focus-visible .bar {
-    outline: 3px solid #667eea;
+    outline: 3px solid var(--accent);
     outline-offset: 2px;
     border-radius: 4px;
 }
@@ -72,7 +112,7 @@ body {
 }
 
 .alpha-banner a {
-    color: #667eea;
+    color: var(--accent);
     font-weight: 600;
     margin-left: 0.5rem;
 }
@@ -92,24 +132,32 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     line-height: 1.2;
     margin-bottom: 1rem;
+    /* Negative tracking at display sizes. Inter is drawn for it, and without it large headings
+     * look loose — the single biggest reason the old page read as dated. */
+    letter-spacing: -0.02em;
+    color: var(--ink);
 }
 
 .section-title {
-    font-size: 2.5rem;
+    font-size: clamp(1.9rem, 3.6vw, 2.6rem);
+    letter-spacing: -0.03em;
     text-align: center;
-    margin-bottom: 1rem;
-    color: #1a1a1a;
+    margin-bottom: 0.75rem;
+    color: var(--ink);
 }
 
 .section-subtitle {
-    font-size: 1.2rem;
+    font-size: 1.0625rem;
     text-align: center;
-    color: #666;
-    margin-bottom: 3rem;
+    color: var(--muted);
+    margin-bottom: 3.5rem;
+    max-width: 60ch;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .gradient-text {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -120,48 +168,56 @@ h1, h2, h3, h4, h5, h6 {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 12px 24px;
-    border-radius: 8px;
+    padding: 12px 22px;
+    border-radius: var(--r-md);
     text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    border: none;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    letter-spacing: -0.01em;
+    /* Named properties, not `all`: transitioning everything animates layout changes too, which is
+     * what made hover feel sluggish. */
+    transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease,
+        box-shadow 0.18s ease, transform 0.18s ease;
+    border: 1px solid transparent;
     cursor: pointer;
-    font-size: 1rem;
 }
 
+/* Flat, not gradient. The gradient is kept for exactly one thing now — the hero headline — so it
+ * reads as a deliberate accent rather than the page's default surface. */
 .btn-primary {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: var(--accent);
+    color: #fff;
+    box-shadow: var(--shadow-sm);
 }
 
 .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(var(--accent-rgb), 0.28);
 }
 
 .btn-secondary {
-    background: transparent;
-    color: #667eea;
-    border: 2px solid #667eea;
+    background: var(--surface);
+    color: var(--ink);
+    border-color: var(--line);
 }
 
 .btn-secondary:hover {
-    background: #667eea;
-    color: white;
-    transform: translateY(-2px);
+    background: var(--surface-alt);
+    border-color: #d3d7e2;
+    transform: translateY(-1px);
 }
 
 .btn-outline {
     background: transparent;
-    color: #667eea;
-    border: 1px solid #667eea;
-    padding: 10px 20px;
+    color: var(--accent);
+    border-color: rgba(var(--accent-rgb), 0.35);
+    padding: 10px 18px;
 }
 
 .btn-outline:hover {
-    background: #667eea;
-    color: white;
+    background: var(--accent-soft);
+    border-color: rgba(var(--accent-rgb), 0.55);
 }
 
 /* Navigation */
@@ -189,13 +245,18 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     font-weight: 700;
-    color: #667eea;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    /* It is an <a>, and nothing was resetting this — the wordmark has been underlined in the
+     * navbar the whole time. */
+    text-decoration: none;
 }
 
 .nav-logo i {
-    font-size: 2rem;
+    color: var(--accent);
+    font-size: 1.75rem;
 }
 
 .nav-menu {
@@ -212,7 +273,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-link:hover {
-    color: #667eea;
+    color: var(--accent);
 }
 
 .nav-toggle {
@@ -235,7 +296,13 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     padding-top: 106px;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    /* Was a grey-blue wash across the whole viewport, which greyed out the headline sitting on it.
+     * A white ground with one soft accent bloom behind the visual keeps the type crisp. */
+    background:
+        radial-gradient(60% 55% at 78% 32%, rgba(var(--accent-rgb), 0.12) 0%, rgba(var(--accent-rgb), 0) 70%),
+        radial-gradient(45% 40% at 8% 8%, rgba(124, 58, 237, 0.08) 0%, rgba(124, 58, 237, 0) 70%),
+        var(--surface);
+    border-bottom: 1px solid var(--line);
 }
 
 .hero-container {
@@ -249,18 +316,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-title {
-    font-size: 3.5rem;
+    font-size: clamp(2.5rem, 5.4vw, 4rem);
     font-weight: 700;
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-    color: #1a1a1a;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    margin-bottom: 1.25rem;
+    color: var(--ink);
 }
 
 .hero-description {
-    font-size: 1.2rem;
-    color: #666;
+    font-size: 1.125rem;
+    color: var(--body);
     margin-bottom: 2rem;
-    line-height: 1.7;
+    line-height: 1.65;
+    max-width: 54ch;
 }
 
 .hero-stats {
@@ -277,12 +346,12 @@ h1, h2, h3, h4, h5, h6 {
     display: block;
     font-size: 2rem;
     font-weight: 700;
-    color: #667eea;
+    color: var(--accent);
 }
 
 .stat-label {
     font-size: 0.9rem;
-    color: #666;
+    color: var(--muted);
 }
 
 .hero-buttons {
@@ -306,13 +375,13 @@ h1, h2, h3, h4, h5, h6 {
 .block {
     width: 80px;
     height: 80px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 12px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+    border-radius: var(--r-lg);
     position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 10px 30px rgba(var(--accent-rgb), 0.3);
     animation: float 3s ease-in-out infinite;
 }
 
@@ -338,7 +407,7 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     width: 280px;
     height: 2px;
-    background: linear-gradient(90deg, #667eea, #764ba2);
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
     top: 50%;
     left: 10px;
     transform: translateY(-50%) rotate(25deg);
@@ -352,7 +421,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Features Section */
 .features {
-    padding: 100px 0;
+    padding: var(--section-y) 0;
     background: #fff;
 }
 
@@ -362,25 +431,30 @@ h1, h2, h3, h4, h5, h6 {
     gap: 2rem;
 }
 
+/* Border first. Every card on this page used to carry a 40px drop shadow at rest, which is what
+ * made the layout feel like it was coming apart. The shadow is now a hover affordance only, and
+ * the lift is 4px rather than 10 — enough to read as interactive without the page jumping. */
 .feature-card {
-    background: #fff;
+    background: var(--surface);
     padding: 2rem;
-    border-radius: 16px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--line);
+    border-radius: var(--r-xl);
+    box-shadow: var(--shadow-sm);
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .feature-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
+    border-color: rgba(var(--accent-rgb), 0.28);
+    box-shadow: var(--shadow-md);
 }
 
 .feature-icon {
     width: 80px;
     height: 80px;
     margin: 0 auto 1.5rem;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -392,11 +466,11 @@ h1, h2, h3, h4, h5, h6 {
 .feature-card h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: #1a1a1a;
+    color: var(--ink);
 }
 
 .feature-card p {
-    color: #666;
+    color: var(--muted);
     line-height: 1.6;
 }
 
@@ -409,7 +483,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Try Stage Section */
 .try-stage {
-    padding: 100px 0;
+    padding: var(--section-y) 0;
     background: white;
 }
 
@@ -421,14 +495,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .try-stage-card {
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
-    border: 1px solid rgba(102, 126, 234, 0.2);
-    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.08) 0%, rgba(124, 58, 237, 0.08) 100%);
+    border: 1px solid rgba(var(--accent-rgb), 0.2);
+    border-radius: var(--r-lg);
     padding: 2rem;
 }
 
 .try-stage-card h3 {
-    color: #667eea;
+    color: var(--accent);
     margin-bottom: 1.25rem;
     font-size: 1.25rem;
 }
@@ -444,24 +518,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .try-stage-steps a {
-    color: #667eea;
+    color: var(--accent);
     font-weight: 500;
 }
 
 .try-stage-note {
     margin-top: 1rem;
     font-size: 0.875rem;
-    color: #666;
+    color: var(--muted);
 }
 
 .try-stage-links {
-    background: #f8f9fa;
-    border-radius: 12px;
+    background: var(--surface-alt);
+    border-radius: var(--r-lg);
     padding: 2rem;
 }
 
 .try-stage-links h3 {
-    color: #1a1a1a;
+    color: var(--ink);
     margin-bottom: 1rem;
     font-size: 1.1rem;
 }
@@ -473,7 +547,7 @@ h1, h2, h3, h4, h5, h6 {
 .try-stage-links li {
     padding: 0.5rem 0;
     border-bottom: 1px solid #e9ecef;
-    color: #666;
+    color: var(--muted);
 }
 
 .try-stage-links li:last-child {
@@ -481,14 +555,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .try-stage-links a {
-    color: #667eea;
+    color: var(--accent);
     word-break: break-all;
 }
 
 .fee-footnote {
     margin-top: 1rem;
     font-size: 0.875rem;
-    color: #666;
+    color: var(--muted);
     font-style: italic;
 }
 
@@ -496,14 +570,14 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 1.5rem;
     padding: 1.5rem;
     background: white;
-    border-radius: 12px;
-    border-left: 4px solid #667eea;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    border-radius: var(--r-lg);
+    border-left: 4px solid var(--accent);
+    box-shadow: var(--shadow-sm);
 }
 
 .fee-developer-callout h4 {
     margin-bottom: 0.75rem;
-    color: #667eea;
+    color: var(--accent);
     font-size: 1.1rem;
 }
 
@@ -524,8 +598,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Architecture Section */
 .architecture {
-    padding: 100px 0;
-    background: #f8f9fa;
+    padding: var(--section-y) 0;
+    background: var(--surface-alt);
 }
 
 .architecture-grid {
@@ -537,13 +611,14 @@ h1, h2, h3, h4, h5, h6 {
 .arch-component {
     background: white;
     padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    border-radius: var(--r-lg);
+    box-shadow: var(--shadow-sm);
     text-align: center;
+    border: 1px solid var(--line);
 }
 
 .arch-component h3 {
-    color: #667eea;
+    color: var(--accent);
     margin-bottom: 1rem;
     font-size: 1.3rem;
 }
@@ -553,7 +628,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .arch-component p {
-    color: #666;
+    color: var(--muted);
     line-height: 1.6;
 }
 
@@ -565,25 +640,25 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .arch-links a {
-    color: #667eea;
+    color: var(--accent);
     font-weight: 500;
     text-decoration: none;
     font-size: 0.9rem;
     padding: 0.35rem 0.75rem;
-    border: 1px solid rgba(102, 126, 234, 0.3);
+    border: 1px solid rgba(var(--accent-rgb), 0.3);
     border-radius: 6px;
     transition: all 0.3s ease;
 }
 
 .arch-links a:hover {
-    background: #667eea;
+    background: var(--accent);
     color: white;
 }
 
 /* Tokenomics Section */
 .tokenomics {
-    padding: 100px 0;
-    background: #f8f9fa;
+    padding: var(--section-y) 0;
+    background: var(--surface-alt);
 }
 
 .tokenomics-content {
@@ -597,20 +672,28 @@ h1, h2, h3, h4, h5, h6 {
 
 .fee-breakdown h3 {
     margin-bottom: 2rem;
-    color: #1a1a1a;
+    color: var(--ink);
+}
+
+/* The peg, stated once directly above the numbers that depend on it. Without it "4,800,000 CLT"
+ * reads as a wildly inflated fare rather than $4.80. */
+.fee-peg {
+    color: var(--muted);
+    font-size: 0.9375rem;
+    margin: -0.5rem 0 1.25rem;
 }
 
 .fee-example {
     background: white;
     padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    border-radius: var(--r-lg);
+    box-shadow: var(--shadow-sm);
 }
 
 .fee-example h4 {
     text-align: center;
     margin-bottom: 2rem;
-    color: #667eea;
+    color: var(--accent);
     font-size: 1.5rem;
 }
 
@@ -646,13 +729,13 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Team Section */
 .team {
-    padding: 100px 0;
+    padding: var(--section-y) 0;
     background: #fff;
 }
 
 /* Roadmap Section */
 .roadmap {
-    padding: 100px 0;
+    padding: var(--section-y) 0;
     background: #fff;
 }
 
@@ -663,11 +746,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .roadmap-card {
-    background: #f8f9fa;
-    border-radius: 12px;
+    background: var(--surface);
+    border-radius: var(--r-lg);
     padding: 1.75rem;
-    border-top: 4px solid #667eea;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    /* Shorthand FIRST, then the top edge. The other order resets border-top to 1px and the status
+     * colour that .done and .planned set on it disappears. */
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--accent);
+    box-shadow: var(--shadow-sm);
 }
 
 .roadmap-card.done {
@@ -675,7 +761,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .roadmap-card.planned {
-    border-top-color: #667eea;
+    border-top-color: var(--accent);
 }
 
 .roadmap-status {
@@ -702,11 +788,11 @@ h1, h2, h3, h4, h5, h6 {
 .roadmap-card h3 {
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
-    color: #1a1a1a;
+    color: var(--ink);
 }
 
 .roadmap-card p {
-    color: #666;
+    color: var(--muted);
     font-size: 0.95rem;
     line-height: 1.6;
 }
@@ -714,19 +800,19 @@ h1, h2, h3, h4, h5, h6 {
 .roadmap-note {
     text-align: center;
     margin-top: 2rem;
-    color: #666;
+    color: var(--muted);
     font-size: 0.9rem;
 }
 
 .roadmap-note a {
-    color: #667eea;
+    color: var(--accent);
     font-weight: 500;
 }
 
 /* FAQ Section */
 .faq {
-    padding: 100px 0;
-    background: #f8f9fa;
+    padding: var(--section-y) 0;
+    background: var(--surface-alt);
 }
 
 .faq-list {
@@ -742,13 +828,13 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 10px;
     border: 1px solid #e9ecef;
     padding: 1rem 1.25rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    box-shadow: var(--shadow-sm);
 }
 
 .faq-item summary {
     cursor: pointer;
     font-weight: 600;
-    color: #1a1a1a;
+    color: var(--ink);
     list-style: none;
     display: flex;
     justify-content: space-between;
@@ -762,7 +848,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .faq-item summary::after {
     content: '+';
-    color: #667eea;
+    color: var(--accent);
     font-size: 1.4rem;
     font-weight: 400;
     line-height: 1;
@@ -774,18 +860,18 @@ h1, h2, h3, h4, h5, h6 {
 
 .faq-item p {
     margin-top: 0.75rem;
-    color: #666;
+    color: var(--muted);
     line-height: 1.6;
 }
 
 .faq-more {
     text-align: center;
     margin-top: 2rem;
-    color: #666;
+    color: var(--muted);
 }
 
 .faq-more a {
-    color: #667eea;
+    color: var(--accent);
     font-weight: 500;
 }
 
@@ -801,11 +887,12 @@ h1, h2, h3, h4, h5, h6 {
 .team-member {
     background: white;
     padding: 2rem;
-    border-radius: 16px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    border-radius: var(--r-xl);
+    box-shadow: var(--shadow-sm);
     text-align: center;
     transition: transform 0.3s ease;
     max-width: 350px;
+    border: 1px solid var(--line);
 }
 
 .team-member:hover {
@@ -817,7 +904,7 @@ h1, h2, h3, h4, h5, h6 {
     height: 120px;
     margin: 0 auto 1.5rem;
     border-radius: 50%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -828,17 +915,17 @@ h1, h2, h3, h4, h5, h6 {
 .team-member h3 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
-    color: #1a1a1a;
+    color: var(--ink);
 }
 
 .member-role {
-    color: #667eea;
+    color: var(--accent);
     font-weight: 500;
     margin-bottom: 1rem;
 }
 
 .member-bio {
-    color: #666;
+    color: var(--muted);
     line-height: 1.6;
     margin-bottom: 1.5rem;
 }
@@ -857,21 +944,21 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #667eea;
+    color: var(--accent);
     text-decoration: none;
     transition: all 0.3s ease;
 }
 
 .member-links a:hover {
-    background: #667eea;
+    background: var(--accent);
     color: white;
     transform: translateY(-2px);
 }
 
 /* Community Section */
 .community {
-    padding: 100px 0;
-    background: #f8f9fa;
+    padding: var(--section-y) 0;
+    background: var(--surface-alt);
 }
 
 .community-grid {
@@ -883,10 +970,11 @@ h1, h2, h3, h4, h5, h6 {
 .community-card {
     background: white;
     padding: 2rem;
-    border-radius: 16px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    border-radius: var(--r-xl);
+    box-shadow: var(--shadow-sm);
     text-align: center;
     transition: transform 0.3s ease;
+    border: 1px solid var(--line);
 }
 
 .community-card:hover {
@@ -895,25 +983,25 @@ h1, h2, h3, h4, h5, h6 {
 
 .community-card i {
     font-size: 3rem;
-    color: #667eea;
+    color: var(--accent);
     margin-bottom: 1.5rem;
 }
 
 .community-card h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: #1a1a1a;
+    color: var(--ink);
 }
 
 .community-card p {
-    color: #666;
+    color: var(--muted);
     line-height: 1.6;
     margin-bottom: 2rem;
 }
 
 /* Footer */
 .footer {
-    background: #1a1a1a;
+    background: var(--ink);
     color: white;
     padding: 60px 0 20px;
 }
@@ -931,7 +1019,7 @@ h1, h2, h3, h4, h5, h6 {
     gap: 10px;
     font-size: 1.5rem;
     font-weight: 700;
-    color: #667eea;
+    color: var(--accent);
     margin-bottom: 1rem;
 }
 
@@ -966,7 +1054,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-section ul li a:hover {
-    color: #667eea;
+    color: var(--accent);
 }
 
 .social-links {
@@ -988,7 +1076,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .social-links a:hover {
-    background: #667eea;
+    background: var(--accent);
     transform: translateY(-2px);
 }
 
@@ -1014,7 +1102,7 @@ h1, h2, h3, h4, h5, h6 {
         width: 100%;
         text-align: center;
         transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        box-shadow: var(--shadow-md);
         padding: 2rem 0;
     }
 
