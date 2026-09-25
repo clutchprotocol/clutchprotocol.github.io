@@ -423,9 +423,52 @@ h1, h2, h3, h4, h5, h6 {
     50% { transform: translateY(-10px); }
 }
 
+/* Reel Section */
+/* The one dark band on the page. The video is dark itself, so a dark ground frames it instead
+ * of leaving a black rectangle on white. preload="none" in the markup keeps the 15 MB file off
+ * the page weight until someone presses play. */
+.reel {
+    padding: var(--section-y) 0;
+    background:
+        radial-gradient(55% 60% at 50% 0%, rgba(var(--accent-rgb), 0.28) 0%, rgba(var(--accent-rgb), 0) 70%),
+        #05060d;
+}
+
+.reel .section-title {
+    color: #fff;
+}
+
+.reel .section-subtitle {
+    color: #a5b4fc;
+    margin-bottom: 2.5rem;
+}
+
+.reel-frame {
+    max-width: 1040px;
+    margin: 0 auto;
+    border-radius: var(--r-xl);
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 0 0 1px rgba(165, 180, 252, 0.18), 0 30px 80px -30px rgba(var(--accent-rgb), 0.6);
+}
+
+.reel-video {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+}
+
+.reel-note {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.875rem;
+    color: #8b93b8;
+}
+
 /* What is Clutch Section */
-/* Sits between the hero and Try Stage, both white, so it takes the alternate surface and a
- * bottom hairline to read as its own band. --section-y already scales down on phones. */
+/* Sits between the dark reel band and Try Stage (white), so it takes the alternate surface and
+ * a bottom hairline to read as its own band. --section-y already scales down on phones. */
 .what-is {
     padding: var(--section-y) 0;
     background: var(--surface-alt);

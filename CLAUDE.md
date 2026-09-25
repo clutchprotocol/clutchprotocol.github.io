@@ -15,6 +15,7 @@ Order on page (nav order differs slightly — nav lists Try Stage before Feature
 | Alpha banner | `.alpha-banner` (fixed, top) | "Alpha software" notice + docs link |
 | Navbar | `.navbar` (fixed, below banner) | Anchor links + external Docs link, hamburger on mobile |
 | Hero | `#home` `.hero` | Title, description, 3 stats, CTA buttons, animated blocks |
+| Reel | `#reel` `.reel` (not nav-linked) | "Clutch in 15 seconds": `assets/clutch-reel.mp4` (1080p60 H.264 + AAC, 15 MB) with poster `assets/clutch-reel-poster.jpg`. The only dark band. `preload="none"` and no autoplay, so the file costs nothing until someone presses play. It is rendered outside this repo; replace both files together, and keep the MP4 small, because every version stays in git history |
 | What is Clutch | `#what-is-clutch` `.what-is` (not nav-linked) | The three-line project summary, same text as the org profile README: what it is, how apps use it, money and servers |
 | Try Stage | `#try-stage` `.try-stage` | Quick-start steps + stage endpoint links |
 | Features | `#features` `.features` | 6 `.feature-card`s ("What exists today") |
