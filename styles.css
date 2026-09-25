@@ -473,6 +473,8 @@ h1, h2, h3, h4, h5, h6 {
     background: var(--accent-soft);
     padding: 0.1em 0.35em;
     border-radius: var(--r-sm);
+    /* A repo name is one word; without this the chip split at the hyphen ("clutch-" / "treasury"). */
+    white-space: nowrap;
 }
 
 /* Features Section */
