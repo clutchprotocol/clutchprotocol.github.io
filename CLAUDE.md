@@ -15,6 +15,7 @@ Order on page (nav order differs slightly — nav lists Try Stage before Feature
 | Alpha banner | `.alpha-banner` (fixed, top) | "Alpha software" notice + docs link |
 | Navbar | `.navbar` (fixed, below banner) | Anchor links + external Docs link, hamburger on mobile |
 | Hero | `#home` `.hero` | Title, description, 3 stats, CTA buttons, animated blocks |
+| What is Clutch | `#what-is-clutch` `.what-is` (not nav-linked) | The three-line project summary, same text as the org profile README: what it is, how apps use it, money and servers |
 | Try Stage | `#try-stage` `.try-stage` | Quick-start steps + stage endpoint links |
 | Features | `#features` `.features` | 6 `.feature-card`s ("What exists today") |
 | Stack | `.architecture` (**no id** — not nav-linked) | 6 `.arch-component` cards, one per repo |
@@ -29,14 +30,16 @@ Order on page (nav order differs slightly — nav lists Try Stage before Feature
 
 ## CSS (styles.css)
 
-- **No CSS variables** — the palette is repeated literally. Primary `#667eea`, secondary `#764ba2`
-  (gradient `linear-gradient(135deg, #667eea 0%, #764ba2 100%)`), headings `#1a1a1a`, body text
-  `#666`/`#333`, alt section bg `#f8f9fa`. When changing colors, search-and-replace all occurrences.
+- **Design tokens are CSS variables in `:root`** at the top of `styles.css`: `--ink` (headings),
+  `--body`, `--muted`, `--accent` / `--accent-2` / `--accent-soft`, `--surface` / `--surface-alt`,
+  `--line`, the `--r-*` radii, `--shadow-*`, and `--section-y`. Use them rather than literal colors.
+  A few older rules still use literals.
 - Font: Inter (Google Fonts, weights 300–700); icons: Font Awesome 6 (cdnjs). Both loaded via
   CDN `<link>`s with `preconnect` — the only external deps.
 - Organized top-to-bottom by section, matching page order, each under a `/* ... Section */` comment.
-- Sections alternate `background: #fff` / `#f8f9fa` and use `padding: 100px 0`; content wraps in
-  `.container` (max-width 1200px). Grids use `repeat(auto-fit, minmax(...))`.
+- Sections use `padding: var(--section-y) 0` (a `clamp()`, so it already shrinks on phones) and a
+  `var(--surface)` or `var(--surface-alt)` background; content wraps in `.container` (max-width
+  1200px). Grids use `repeat(auto-fit, minmax(...))`.
 - Breakpoints: `768px` (mobile nav slides in, single columns) and `480px` (full-width buttons,
   tighter cards). Plus a `prefers-reduced-motion` block that kills all animations/transitions.
 - Fixed-header math: banner is ~36px, navbar `top: 36px` height 70px, so anchor targets get
