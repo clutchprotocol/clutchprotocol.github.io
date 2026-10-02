@@ -49,7 +49,7 @@ Order on page (nav order differs slightly — nav lists Try Stage before Feature
 
 ## JS (script.js)
 
-One `DOMContentLoaded` handler; ~180 lines, no modules. Behaviors:
+One `DOMContentLoaded` handler; ~40 lines, no modules. Behaviors:
 - Mobile hamburger toggle (`.nav-toggle` ↔ `.nav-menu.active`, syncs `aria-expanded`, animates bars).
 - Navbar background/shadow swap past 50px scroll.
 - IntersectionObserver scroll-reveal on cards (skipped under `prefers-reduced-motion`).
@@ -79,7 +79,7 @@ Jekyll processing. Don't delete either file. There is no staging — main is pro
 - New section: `<section id="x" class="x">` inside `<main>`, with `.container` >
   `h2.section-title` + `p.section-subtitle` + a grid; append a matching `/* X Section */` CSS block
   in page order; add a nav link and mobile fallbacks in the 768px media query if needed.
-- Icons: Font Awesome `<i class="fas fa-..." aria-hidden="true">`; external links get
+- No icons; external links get
   `target="_blank" rel="noopener"`; keep ARIA labels on icon-only links.
 - Copy is deliberately honest "alpha" messaging (what exists vs. planned) — don't inflate claims;
   governance/mainnet are explicitly marked as not implemented.
