@@ -5,11 +5,12 @@ Official website for Clutch Protocol - Decentralized ride-sharing blockchain.
 ## Live Site
 
 - **Production**: [clutchprotocol.io](https://clutchprotocol.io)
+- **Mainnet app (pilot)**: [app.clutchprotocol.io](https://app.clutchprotocol.io)
 - **Stage demo (testnet)**: [app-stage.clutchprotocol.io](https://app-stage.clutchprotocol.io)
 - **Documentation**: [docs.clutchprotocol.io](https://docs.clutchprotocol.io)
 - **GitHub Pages**: [clutchprotocol.github.io](https://clutchprotocol.github.io)
 
-Alpha software — the stage testnet is for experimentation. APIs may change.
+Alpha software — the mainnet is live as a capped pilot (small limits, real money), and the stage testnet is for experimentation. APIs may change.
 
 ## Features
 
@@ -163,8 +164,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **Organization**: [github.com/clutchprotocol](https://github.com/clutchprotocol)
 - **Documentation**: [docs.clutchprotocol.io](https://docs.clutchprotocol.io)
+- **Mainnet app**: [app.clutchprotocol.io](https://app.clutchprotocol.io)
 - **Stage demo**: [app-stage.clutchprotocol.io](https://app-stage.clutchprotocol.io)
-- **Production demo**: [demo.clutchprotocol.io](https://demo.clutchprotocol.io)
 
 ## 📧 Contact
 

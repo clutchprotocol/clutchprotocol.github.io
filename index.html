@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0a5c45">
     <title>Clutch Protocol - Decentralized Ride-Sharing Blockchain</title>
-    <meta name="description" content="Open-source ride-sharing that settles on a public chain: drivers paid in seconds, no operator holding the money. Alpha, with a public testnet you can try now.">
-    <meta name="keywords" content="blockchain, ride-sharing, decentralized, open source, testnet">
+    <meta name="description" content="Open-source ride-sharing that settles on a public chain: drivers paid in seconds, no operator holding the money. Alpha: a capped mainnet pilot is live, plus a public testnet you can try now.">
+    <meta name="keywords" content="blockchain, ride-sharing, decentralized, open source, mainnet, testnet">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -14,7 +14,7 @@
     <meta property="og:locale" content="en_US">
     <meta property="og:url" content="https://clutchprotocol.io/">
     <meta property="og:title" content="Clutch Protocol - Decentralized Ride-Sharing Blockchain">
-    <meta property="og:description" content="Open-source ride-sharing that settles on a public chain: drivers paid in seconds, no operator holding the money. Alpha, with a public testnet you can try now.">
+    <meta property="og:description" content="Open-source ride-sharing that settles on a public chain: drivers paid in seconds, no operator holding the money. Alpha: a capped mainnet pilot is live, plus a public testnet you can try now.">
     <meta property="og:image" content="https://clutchprotocol.io/assets/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -23,7 +23,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://clutchprotocol.io/">
     <meta name="twitter:title" content="Clutch Protocol - Decentralized Ride-Sharing Blockchain">
-    <meta name="twitter:description" content="Open-source ride-sharing that settles on a public chain: drivers paid in seconds, no operator holding the money. Alpha, with a public testnet you can try now.">
+    <meta name="twitter:description" content="Open-source ride-sharing that settles on a public chain: drivers paid in seconds, no operator holding the money. Alpha: a capped mainnet pilot is live, plus a public testnet you can try now.">
     <meta name="twitter:image" content="https://clutchprotocol.io/assets/og-image.jpg">
 
     <link rel="canonical" href="https://clutchprotocol.io/">
@@ -52,7 +52,7 @@
           "@type": "WebSite",
           "name": "Clutch Protocol",
           "url": "https://clutchprotocol.io/",
-          "description": "Open-source ride-sharing that settles on a public chain: drivers paid in seconds, no operator holding the money. Alpha, with a public testnet you can try now."
+          "description": "Open-source ride-sharing that settles on a public chain: drivers paid in seconds, no operator holding the money. Alpha: a capped mainnet pilot is live, plus a public testnet you can try now."
         }
       ]
     }
@@ -61,7 +61,7 @@
 <body>
     <a href="#home" class="skip-link">Skip to content</a>
     <div class="alpha-banner" role="status">
-        <strong>Alpha software</strong> <span class="alpha-detail">— public testnet for experimentation. APIs may change.</span>
+        <strong>Alpha software</strong> <span class="alpha-detail">— the mainnet is live as a capped pilot; the public testnet is for experiments. APIs may change.</span>
         <a href="https://docs.clutchprotocol.io">Read the docs</a>
     </div>
 
@@ -72,7 +72,7 @@
             </a>
             <ul class="nav-menu" id="nav-menu">
                 <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#try-stage" class="nav-link">Try Stage</a></li>
+                <li><a href="#try-stage" class="nav-link">Try it</a></li>
                 <li><a href="#features" class="nav-link">Features</a></li>
                 <li><a href="#tokenomics" class="nav-link">Fees</a></li>
                 <li><a href="#roadmap" class="nav-link">Roadmap</a></li>
@@ -101,11 +101,13 @@
                 </h1>
                 <p class="hero-description">
                     Open-source ride-sharing that settles on a public chain: riders and drivers sign on
-                    their own devices, and no operator ever holds the money. Alpha, with a public testnet
-                    you can try right now.
+                    their own devices, and no operator ever holds the money. Alpha: the mainnet is live as
+                    a capped pilot, and a public testnet is open for experiments.
                 </p>
                 <div class="hero-buttons">
-                    <a href="https://app-stage.clutchprotocol.io" class="btn btn-primary" target="_blank" rel="noopener"> Run a ride on the testnet
+                    <a href="https://app.clutchprotocol.io" class="btn btn-primary" target="_blank" rel="noopener"> Open the mainnet app
+                    </a>
+                    <a href="https://app-stage.clutchprotocol.io" class="btn btn-outline" target="_blank" rel="noopener"> Run a ride on the testnet
                     </a>
                     <a href="https://docs.clutchprotocol.io" class="btn btn-outline" target="_blank" rel="noopener"> Read the docs
                     </a>
@@ -158,7 +160,7 @@
             </div><dl class="what-is-list">
                 <div><dt>What it is</dt><dd>Clutch Protocol is an open-source ride-sharing blockchain. Passengers and drivers send ride requests, offers and payments as transactions on its own chain, <a href="https://github.com/clutchprotocol/clutch-node" target="_blank" rel="noopener"><code>clutch-node</code></a>.</dd></div>
                 <div><dt>How apps use it</dt><dd><a href="https://github.com/clutchprotocol/clutch-hub" target="_blank" rel="noopener"><code>clutch-hub</code></a> has the Hub API, a JavaScript SDK that signs on the user's device, and a reference app for passengers and drivers. <a href="https://github.com/clutchprotocol/clutch-explorer" target="_blank" rel="noopener"><code>clutch-explorer</code></a> shows the blocks and transactions.</dd></div>
-                <div><dt>Money and servers</dt><dd>Rides are paid in CLT, a token fully backed by USDT, and <a href="https://github.com/clutchprotocol/clutch-treasury" target="_blank" rel="noopener"><code>clutch-treasury</code></a> gives CLT for USDT and pays USDT back. <a href="https://github.com/clutchprotocol/clutch-deploy" target="_blank" rel="noopener"><code>clutch-deploy</code></a> runs the public testnet and the mainnet, which has been live since 2026-09-19 (mainnet deposits are not open yet).</dd></div>
+                <div><dt>Money and servers</dt><dd>Rides are paid in CLT, a token fully backed by USDT, and <a href="https://github.com/clutchprotocol/clutch-treasury" target="_blank" rel="noopener"><code>clutch-treasury</code></a> gives CLT for USDT and pays USDT back. <a href="https://github.com/clutchprotocol/clutch-deploy" target="_blank" rel="noopener"><code>clutch-deploy</code></a> runs the public testnet and the mainnet. The mainnet is live as a capped pilot: top-ups are open, withdrawals are not open yet.</dd></div>
             </dl>
         </div>
     </section>
@@ -167,11 +169,25 @@
     <section id="try-stage" class="try-stage">
         <div class="container">
             <div class="section-head"><h2 class="section-title">Try the network</h2>
-            <p class="section-subtitle">Use the public stage testnet — no install required</p></div>
+            <p class="section-subtitle">The mainnet pilot with small amounts, or the public testnet with test money — no install required</p></div>
 
             <div class="try-stage-grid">
+                <div class="try-stage-cards">
                 <div class="try-stage-card">
-                    <h3> Quick start</h3>
+                    <h3> Mainnet pilot</h3>
+                    <ol class="try-stage-steps">
+                        <li>Open <a href="https://app.clutchprotocol.io" target="_blank" rel="noopener">app.clutchprotocol.io</a>, choose <strong>passenger</strong> or <strong>driver</strong> and generate a wallet. Your keys stay on your device</li>
+                        <li>Open the menu and choose <strong>Wallet</strong>, then the <strong>Top up</strong> tab, then send USDT (TRC-20, on Tron) to the address it shows — the treasury mints the same amount of CLT to your wallet</li>
+                        <li>As passenger: request a ride on the map. As driver: view requests and submit an offer. Rides settle in CLT on the Clutch mainnet</li>
+                    </ol>
+                    <a href="https://app.clutchprotocol.io" class="btn btn-primary" target="_blank" rel="noopener">
+                        Open the mainnet app
+                    </a>
+                    <p class="try-stage-note">Real money, alpha software, small limits: up to $100 per top-up and $200 per day, and network fees apply. Withdrawals are not open yet. Use only what you can afford to lose. <a href="https://docs.clutchprotocol.io/getting-started/environments" target="_blank" rel="noopener">Details in the docs</a>.</p>
+                </div>
+
+                <div class="try-stage-card">
+                    <h3> Testnet quick start</h3>
                     <ol class="try-stage-steps">
                         <li>Open <a href="https://app-stage.clutchprotocol.io" target="_blank" rel="noopener">app-stage.clutchprotocol.io</a></li>
                         <li>Choose <strong>passenger</strong> or <strong>driver</strong> and generate a wallet</li>
@@ -181,14 +197,17 @@
                     <a href="https://app-stage.clutchprotocol.io" class="btn btn-primary" target="_blank" rel="noopener">
                         Open stage demo
                     </a>
-                    <p class="try-stage-note">Testnet only — not production. Wallets and keys are for experimentation.</p>
+                    <p class="try-stage-note">Testnet: test money only, no real value. Wallets and keys are for experimentation.</p>
+                </div>
                 </div>
 
                 <div class="try-stage-links">
-                    <h3>Stage endpoints</h3>
+                    <h3>Endpoints</h3>
                     <ul>
-                        <li><strong>Demo app:</strong> <a href="https://app-stage.clutchprotocol.io" target="_blank" rel="noopener">app-stage.clutchprotocol.io</a></li>
-                        <li><strong>Hub API:</strong> <a href="https://api-stage.clutchprotocol.io/health" target="_blank" rel="noopener">api-stage.clutchprotocol.io</a></li>
+                        <li><strong>Mainnet app:</strong> <a href="https://app.clutchprotocol.io" target="_blank" rel="noopener">app.clutchprotocol.io</a></li>
+                        <li><strong>Mainnet Hub API:</strong> <a href="https://api.clutchprotocol.io/health" target="_blank" rel="noopener">api.clutchprotocol.io</a></li>
+                        <li><strong>Testnet demo app:</strong> <a href="https://app-stage.clutchprotocol.io" target="_blank" rel="noopener">app-stage.clutchprotocol.io</a></li>
+                        <li><strong>Testnet Hub API:</strong> <a href="https://api-stage.clutchprotocol.io/health" target="_blank" rel="noopener">api-stage.clutchprotocol.io</a></li>
                         <li><strong>Docs:</strong> <a href="https://docs.clutchprotocol.io/getting-started/environments" target="_blank" rel="noopener">Environments guide</a></li>
                         <li><strong>SDK:</strong> <a href="https://www.npmjs.com/package/clutch-hub-sdk-js" target="_blank" rel="noopener">clutch-hub-sdk-js on npm</a></li>
                         <li><strong>App rewards:</strong> <a href="https://docs.clutchprotocol.io/getting-started/app-developer-incentives" target="_blank" rel="noopener">Earn CLT as an app builder</a></li>
@@ -226,8 +245,8 @@
                 </div>
 
                 <div class="feature-card">
-                    <h3>Multi-node testnet</h3>
-                    <p>Aura consensus with multiple validator nodes on stage. Run the full stack locally with clutch-deploy.</p>
+                    <h3>Multi-node chains</h3>
+                    <p>Aura consensus with three validator nodes on the mainnet pilot and on the stage testnet. Run the full stack locally with clutch-deploy.</p>
                 </div>
 
             </div>
@@ -269,7 +288,8 @@
                     <p>Reference React app with passenger and driver flows, map UI, and live updates.</p>
                     <div class="arch-links">
                         <a href="https://github.com/clutchprotocol/clutch-hub/tree/main/apps/demo" target="_blank" rel="noopener">GitHub</a>
-                        <a href="https://app-stage.clutchprotocol.io" target="_blank" rel="noopener">Live</a>
+                        <a href="https://app.clutchprotocol.io" target="_blank" rel="noopener">Mainnet</a>
+                        <a href="https://app-stage.clutchprotocol.io" target="_blank" rel="noopener">Testnet</a>
                     </div>
                 </div>
                 <div class="arch-component">
@@ -282,7 +302,7 @@
                 </div>
                 <div class="arch-component">
                     <h3> Clutch Deploy</h3>
-                    <p>Docker Compose for nodes, API, demo, explorer, and monitoring — local or stage.</p>
+                    <p>Docker Compose for nodes, API, demo, explorer, treasury, and monitoring — local, stage, or the mainnet pilot.</p>
                     <div class="arch-links">
                         <a href="https://github.com/clutchprotocol/clutch-deploy" target="_blank" rel="noopener">GitHub</a>
                         <a href="https://docs.clutchprotocol.io/deployment/clutch-deploy" target="_blank" rel="noopener">Docs</a>
@@ -335,16 +355,16 @@
                 </div>
                 <div class="roadmap-card done">
                     <span class="roadmap-status">Live</span>
-                    <h3>Fully-reserved CLT</h3>
-                    <p>Deposit USDT on Tron to mint CLT, burn CLT to redeem it back. Every CLT in circulation is backed 1:1 by off-chain reserve, and the chain pre-mints nothing at genesis.</p>
+                    <h3>Mainnet pilot, fully-reserved CLT</h3>
+                    <p>Deposit USDT on Tron to mint CLT, burn CLT to redeem it back. Every CLT in circulation is backed 1:1 by off-chain reserve, and the chain pre-mints nothing at genesis. The mainnet pilot runs this with three validators, open to every account, with small limits ($100 per top-up, $200 per day) and the treasury's keys held on the server. Top-ups are open; withdrawals open once the payout wallet is activated.</p>
                 </div>
                 <div class="roadmap-card planned">
                     <span class="roadmap-status">Planned</span>
-                    <h3>Mainnet</h3>
-                    <p>Hardened validator set, audited crypto, and production economics. No fixed date — see the docs FAQ for status.</p>
+                    <h3>Production mainnet</h3>
+                    <p>Independent validator operators, audited crypto, treasury keys behind a hardware boundary, and higher limits. No fixed date — see Mainnet readiness in the docs.</p>
                 </div>
             </div>
-            <p class="roadmap-note">Status is alpha and subject to change. See the <a href="https://docs.clutchprotocol.io/reference/faq" target="_blank" rel="noopener">FAQ in the docs</a> for what is and is not shipped.</p>
+            <p class="roadmap-note">Status is alpha and subject to change. See the <a href="https://docs.clutchprotocol.io/reference/faq" target="_blank" rel="noopener">FAQ in the docs</a> for what is and is not shipped, and <a href="https://docs.clutchprotocol.io/reference/mainnet-readiness" target="_blank" rel="noopener">Mainnet readiness</a> for what stands between the pilot and a production mainnet.</p>
         </div>
     </section>
 
@@ -356,7 +376,7 @@
             <div class="faq-list">
                 <details class="faq-item">
                     <summary>Is Clutch a real, running blockchain?</summary>
-                    <p>Yes — an alpha public testnet with multiple Aura validator nodes. It is for experimentation; APIs may change. There is no mainnet yet.</p>
+                    <p>Yes. A capped mainnet pilot is live: chain 1000, three Aura validators, open to every account, with small limits. Withdrawals are not open yet. An alpha public testnet runs beside it for experiments. Both are alpha software: APIs may change, and the mainnet has not been audited.</p>
                 </details>
                 <details class="faq-item">
                     <summary>Why a custom chain instead of Ethereum or an L2?</summary>
@@ -368,7 +388,7 @@
                 </details>
                 <details class="faq-item">
                     <summary>Are private keys safe?</summary>
-                    <p>Keys never leave the client. The SDK signs transactions locally (secp256k1, Keccak-256) and only submits signed RLP hex to the Hub API. The one server-side signer is the treasury's mint authority, which signs the Mint crediting a USDT deposit it has already verified on Tron — it can create CLT against a deposit and nothing else.</p>
+                    <p>Users' keys never leave the client. The SDK signs transactions locally (secp256k1, Keccak-256) and only submits signed RLP hex to the Hub API. The treasury has two server-side keys of its own: a mint key, which signs the Mint crediting a USDT deposit it has already verified on Tron, and a payout key, which pays USDT back. On the mainnet pilot both are plain keys on the server, not behind a hardware boundary, so someone who gets into that server could mint CLT or take the reserve. That is why the pilot's limits are small, and why putting those keys behind a hardware boundary is on the production-mainnet list.</p>
                 </details>
                 <details class="faq-item">
                     <summary>Can I build an app and earn CLT?</summary>
@@ -434,7 +454,7 @@
                 <div class="footer-section">
                     <div class="footer-logo"> <span>Clutch Protocol</span>
                     </div>
-                    <p>Open-source ride-sharing blockchain. Alpha testnet available on stage.</p>
+                    <p>Open-source ride-sharing blockchain. Mainnet pilot and public testnet are live.</p>
                     <div class="social-links">
                         <a href="https://github.com/clutchprotocol" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
                         <a href="mailto:hello@clutchprotocol.io" aria-label="Email">Email</a>
@@ -444,8 +464,8 @@
                 <div class="footer-section">
                     <h4>Try it</h4>
                     <ul>
-                        <li><a href="https://app-stage.clutchprotocol.io" target="_blank" rel="noopener">Stage demo</a></li>
-                        <li><a href="https://demo.clutchprotocol.io" target="_blank" rel="noopener">Production demo</a></li>
+                        <li><a href="https://app.clutchprotocol.io" target="_blank" rel="noopener">Mainnet app</a></li>
+                        <li><a href="https://app-stage.clutchprotocol.io" target="_blank" rel="noopener">Testnet demo</a></li>
                         <li><a href="#features">Features</a></li>
                         <li><a href="#tokenomics">Fee model</a></li>
                     </ul>
