@@ -208,6 +208,7 @@ main > section:not(.hero):not(.reel)::before {
 
 /* Try the network: a highway sign */
 .try-stage-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); gap: clamp(32px, 5vw, 72px); align-items: start; }
+.try-stage-cards { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
 .try-stage-card {
     position: relative;
     background: var(--sign); color: #f4f8f5;
