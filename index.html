@@ -176,7 +176,7 @@
                 <div class="try-stage-card">
                     <h3> Mainnet pilot</h3>
                     <ol class="try-stage-steps">
-                        <li>Open <a href="https://app.clutchprotocol.io" target="_blank" rel="noopener">app.clutchprotocol.io</a>, choose <strong>passenger</strong> or <strong>driver</strong> and connect your wallet (MetaMask or Trust Wallet). The app never holds your keys</li>
+                        <li>Open <a href="https://app.clutchprotocol.io" target="_blank" rel="noopener">app.clutchprotocol.io</a>, choose <strong>passenger</strong> or <strong>driver</strong> and connect your wallet (MetaMask, Trust Wallet or TronLink). The app never holds your keys</li>
                         <li>Open the menu and choose <strong>Wallet</strong>, then the <strong>Top up</strong> tab, then send USDT (TRC-20, on Tron) to the address it shows — the treasury mints the same amount of CLT to your wallet</li>
                         <li>As passenger: request a ride on the map. As driver: view requests and submit an offer. Rides settle in CLT on the Clutch mainnet</li>
                     </ol>
@@ -190,7 +190,7 @@
                     <h3> Testnet quick start</h3>
                     <ol class="try-stage-steps">
                         <li>Open <a href="https://app-stage.clutchprotocol.io" target="_blank" rel="noopener">app-stage.clutchprotocol.io</a></li>
-                        <li>Choose <strong>passenger</strong> or <strong>driver</strong> and connect your wallet (MetaMask or Trust Wallet)</li>
+                        <li>Choose <strong>passenger</strong> or <strong>driver</strong> and connect your wallet (MetaMask, Trust Wallet or TronLink)</li>
                         <li>Open the menu and choose <strong>Wallet</strong>, then the <strong>Top up</strong> tab, then send Nile testnet USDT to the address it shows — the treasury mints the matching CLT to your wallet</li>
                         <li>As passenger: request a ride on the map. As driver: view requests and submit an offer</li>
                     </ol>
@@ -384,7 +384,7 @@
                 </details>
                 <details class="faq-item">
                     <summary>Which wallets work?</summary>
-                    <p>MetaMask and Trust Wallet. A Clutch account is an Ethereum-type account, so the address of a MetaMask or Trust Wallet account is a valid Clutch address, and the wallet only has to sign a short text. Clutch is not an EVM network: you do not add it to the wallet, and the wallet does not show your CLT balance (the app does). On a phone, open the app inside the wallet app's own browser. A phone wallet that scans a code shown on a computer (WalletConnect) is not built yet.</p>
+                    <p>MetaMask, Trust Wallet and TronLink. A Clutch account is an Ethereum-type account, so the address of a MetaMask or Trust Wallet account is a valid Clutch address, and the wallet only has to sign a short text. A TronLink account is the same kind of key: the <code>T…</code> address that TronLink shows and the <code>0x…</code> address that Clutch shows are one account. Clutch is not an EVM network: you do not add it to the wallet, and the wallet does not show your CLT balance (the app does). On a phone, open the app inside the wallet app's own browser. A phone wallet that scans a code shown on a computer (WalletConnect) is not built yet.</p>
                 </details>
                 <details class="faq-item">
                     <summary>Why a custom chain instead of Ethereum or an L2?</summary>
@@ -396,7 +396,7 @@
                 </details>
                 <details class="faq-item">
                     <summary>Are private keys safe?</summary>
-                    <p>Users' keys never leave the user's wallet. The app holds none: MetaMask or Trust Wallet keeps the key and signs after you approve, and the SDK only submits signed RLP hex to the Hub API. A wallet shows a short text that starts with <code>clutch-</code>, not the ride, so the app tells you what each prompt is for before it opens. The treasury has two server-side keys of its own: a mint key, which signs the Mint crediting a USDT deposit it has already verified on Tron, and a payout key, which pays USDT back. On the mainnet pilot both are plain keys on the server, not behind a hardware boundary, so someone who gets into that server could mint CLT or take the reserve. That is why the pilot's limits are small, and why putting those keys behind a hardware boundary is on the production-mainnet list.</p>
+                    <p>Users' keys never leave the user's wallet. The app holds none: MetaMask, Trust Wallet or TronLink keeps the key and signs after you approve, and the SDK only submits signed RLP hex to the Hub API. A wallet shows a short text that starts with <code>clutch-</code>, not the ride, so the app tells you what each prompt is for before it opens. The treasury has two server-side keys of its own: a mint key, which signs the Mint crediting a USDT deposit it has already verified on Tron, and a payout key, which pays USDT back. On the mainnet pilot both are plain keys on the server, not behind a hardware boundary, so someone who gets into that server could mint CLT or take the reserve. That is why the pilot's limits are small, and why putting those keys behind a hardware boundary is on the production-mainnet list.</p>
                 </details>
                 <details class="faq-item">
                     <summary>Can I build an app and earn CLT?</summary>
