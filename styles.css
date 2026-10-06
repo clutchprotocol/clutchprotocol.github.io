@@ -255,7 +255,7 @@ main > section:not(.hero):not(.reel)::before {
 .fee-bars { display: grid; gap: 10px; margin: 1.25rem 0 1.5rem; }
 .fee-bar { position: relative; background: var(--concrete-2); border-radius: 4px; overflow: hidden; }
 .fee-bar::before { content: ""; position: absolute; inset: auto auto 0 0; height: 8px; width: var(--w, 0%); background: var(--sign); transition: width 0.25s; }
-.fee-bar.referrer::before, .fee-bar.developers::before { background: var(--lane); }
+.fee-bar.referrer::before { background: var(--lane); }
 .fee-bar > span { position: relative; display: flex; justify-content: space-between; gap: 1rem; padding: 0.7rem 1rem 1.1rem; color: var(--ink); font-weight: 500; }
 .fee-amount { font-variant-numeric: tabular-nums; text-align: right; }
 .fee-footnote { color: var(--muted); font-size: 0.98rem; max-width: 70ch; }
