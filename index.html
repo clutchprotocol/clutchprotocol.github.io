@@ -81,7 +81,7 @@
                 <li><a href="#community" class="nav-link">Community</a></li>
                 <li><a href="https://docs.clutchprotocol.io" class="nav-link" target="_blank" rel="noopener">Docs</a></li>
             </ul>
-            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+            <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -94,7 +94,7 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-container">
-            <div class="hero-content">
+            <div>
                 <h1 class="hero-title">
                     <span>Drivers paid in seconds.</span>
                     <span>No platform in the middle.</span>
@@ -107,11 +107,11 @@
                 <div class="hero-buttons">
                     <a href="https://app.clutchprotocol.io" class="btn btn-primary" target="_blank" rel="noopener"> Open the mainnet app
                     </a>
-                    <a href="https://app-stage.clutchprotocol.io" class="btn btn-outline" target="_blank" rel="noopener"> Run a ride on the testnet
+                    <a href="https://app-stage.clutchprotocol.io" class="btn" target="_blank" rel="noopener"> Run a ride on the testnet
                     </a>
-                    <a href="https://docs.clutchprotocol.io" class="btn btn-outline" target="_blank" rel="noopener"> Read the docs
+                    <a href="https://docs.clutchprotocol.io" class="btn" target="_blank" rel="noopener"> Read the docs
                     </a>
-                    <a href="https://github.com/clutchprotocol" class="btn btn-outline" target="_blank" rel="noopener"> See the code
+                    <a href="https://github.com/clutchprotocol" class="btn" target="_blank" rel="noopener"> See the code
                     </a>
                 </div>
             </div>
@@ -317,7 +317,7 @@
         <div class="container">
             <div class="section-head"><h2 class="section-title">CLT economics</h2>
             <p class="section-subtitle">Implemented on-chain in clutch-node (alpha)</p></div>
-            <div class="tokenomics-content">
+            <div>
                 <div class="fee-breakdown">
                     <h3>Move the fare. See who gets what.</h3>
                     <p class="fee-peg">CLT is an integer micro-dollar — 1 USD = 1,000,000 CLT — so a $5.00 fare is 5,000,000 CLT. One RidePay, both referrers.</p>
@@ -327,15 +327,15 @@
                         <output for="fare" id="fare-out">$5.00</output>
                     </form>
                     <div class="fee-bars" id="fee-bars">
-                        <div class="fee-bar driver" style="--w:96%"><span><span class="fee-label">Driver</span><span class="fee-amount">4,800,000 CLT ($4.80)</span></span></div>
-                        <div class="fee-bar referrer" style="--w:2%"><span><span class="fee-label">Request referrer (2%)</span><span class="fee-amount">100,000 CLT ($0.10)</span></span></div>
-                        <div class="fee-bar developers" style="--w:2%"><span><span class="fee-label">Offer referrer (2%)</span><span class="fee-amount">100,000 CLT ($0.10)</span></span></div>
+                        <div class="fee-bar driver" style="--w:96%"><span><span>Driver</span><span class="fee-amount">4,800,000 CLT ($4.80)</span></span></div>
+                        <div class="fee-bar referrer" style="--w:2%"><span><span>Request referrer (2%)</span><span class="fee-amount">100,000 CLT ($0.10)</span></span></div>
+                        <div class="fee-bar referrer" style="--w:2%"><span><span>Offer referrer (2%)</span><span class="fee-amount">100,000 CLT ($0.10)</span></span></div>
                     </div>
                     <p class="fee-footnote">Referrer fees apply per RidePay installment, in basis points with floor rounding, and the driver's share is the exact remainder — the three always sum to the fare. Validators are not paid from fares at all: every non-exempt transaction pays a flat 1,000 CLT ($0.001) to the block author. There are no block rewards, because minting unbacked CLT to pay validators would break the 1:1 reserve. Details at <a href="https://docs.clutchprotocol.io/clutch-node/clt-economics">docs.clutchprotocol.io</a>.</p>
                     <div class="fee-developer-callout">
                         <h4> For app developers</h4>
                         <p>Deploy your own app with the SDK and Hub API, set your wallet as the ride referrer in Hub config, and earn up to <strong>4% CLT per RidePay</strong> (default 2% request + 2% offer) when passengers pay drivers on your deployment. No separate grants — rewards come from real ride activity on-chain.</p>
-                        <a href="https://docs.clutchprotocol.io/getting-started/app-developer-incentives" class="btn btn-outline btn-sm" target="_blank" rel="noopener">App developer incentives</a>
+                        <a href="https://docs.clutchprotocol.io/getting-started/app-developer-incentives" class="btn btn-sm" target="_blank" rel="noopener">App developer incentives</a>
                     </div>
                 </div>
             </div>
@@ -413,7 +413,7 @@
             <div class="section-head"><h2 class="section-title">Team</h2>
             <p class="section-subtitle">Maintainer and contributors welcome</p></div>
 
-            <div class="team-grid">
+            <div>
                 <div class="team-member">
                     <div class="member-avatar" aria-hidden="true">MM</div>
                     <h3>Mehran Mazhar</h3>
@@ -437,17 +437,17 @@
             <div class="community-grid">
                 <div class="community-card"> <h3>Source code</h3>
                     <p>Eight public project repos — node, Hub API, SDK, demo app, explorer, deploy, docs, and this website.</p>
-                    <a href="https://github.com/clutchprotocol" class="btn btn-outline" target="_blank" rel="noopener">View on GitHub</a>
+                    <a href="https://github.com/clutchprotocol" class="btn" target="_blank" rel="noopener">View on GitHub</a>
                 </div>
 
                 <div class="community-card"> <h3>Discussions</h3>
                     <p>Ask questions, share ideas, and connect with other developers on GitHub.</p>
-                    <a href="https://github.com/orgs/clutchprotocol/discussions" class="btn btn-outline" target="_blank" rel="noopener">Join discussion</a>
+                    <a href="https://github.com/orgs/clutchprotocol/discussions" class="btn" target="_blank" rel="noopener">Join discussion</a>
                 </div>
 
                 <div class="community-card"> <h3>Documentation</h3>
                     <p>Quick start, ride lifecycle guide, GraphQL reference, and deployment docs.</p>
-                    <a href="https://docs.clutchprotocol.io" class="btn btn-outline" target="_blank" rel="noopener">Read docs</a>
+                    <a href="https://docs.clutchprotocol.io" class="btn" target="_blank" rel="noopener">Read docs</a>
                 </div>
             </div>
         </div>
@@ -459,7 +459,7 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
+                <div>
                     <div class="footer-logo"> <span>Clutch Protocol</span>
                     </div>
                     <p>Open-source ride-sharing blockchain. Mainnet pilot and public testnet are live.</p>
@@ -469,7 +469,7 @@
                     </div>
                 </div>
 
-                <div class="footer-section">
+                <div>
                     <h4>Try it</h4>
                     <ul>
                         <li><a href="https://app.clutchprotocol.io" target="_blank" rel="noopener">Mainnet app</a></li>
@@ -479,7 +479,7 @@
                     </ul>
                 </div>
 
-                <div class="footer-section">
+                <div>
                     <h4>Developers</h4>
                     <ul>
                         <li><a href="https://docs.clutchprotocol.io">Documentation</a></li>
@@ -495,7 +495,7 @@
                     </ul>
                 </div>
 
-                <div class="footer-section">
+                <div>
                     <h4>Community</h4>
                     <ul>
                         <li><a href="https://github.com/orgs/clutchprotocol/discussions">Discussions</a></li>

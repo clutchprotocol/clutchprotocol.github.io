@@ -1,177 +1,43 @@
 # Clutch Protocol Website
 
-Official website for Clutch Protocol - Decentralized ride-sharing blockchain.
+The site at [clutchprotocol.io](https://clutchprotocol.io): one static page for Clutch Protocol, an
+open-source ride-sharing blockchain.
 
-## Live Site
+Alpha software: the mainnet is live as a capped pilot (small limits, real money), and the stage
+testnet is for experiments. APIs may change.
 
-- **Production**: [clutchprotocol.io](https://clutchprotocol.io)
 - **Mainnet app (pilot)**: [app.clutchprotocol.io](https://app.clutchprotocol.io)
-- **Stage demo (testnet)**: [app-stage.clutchprotocol.io](https://app-stage.clutchprotocol.io)
+- **Testnet app**: [app-stage.clutchprotocol.io](https://app-stage.clutchprotocol.io)
 - **Documentation**: [docs.clutchprotocol.io](https://docs.clutchprotocol.io)
-- **GitHub Pages**: [clutchprotocol.github.io](https://clutchprotocol.github.io)
+- **Code**: [github.com/clutchprotocol](https://github.com/clutchprotocol)
 
-Alpha software — the mainnet is live as a capped pilot (small limits, real money), and the stage testnet is for experimentation. APIs may change.
+## What is here
 
-## Features
-
-- **Responsive Design**: Mobile-first approach with modern UI/UX
-- **Performance Optimized**: Font preconnect, minimal JS, efficient animations
-- **SEO Friendly**: Open Graph, Twitter Card, JSON-LD structured data, sitemap and robots.txt
-- **Accessibility**: Semantic HTML, skip link, focus-visible styles, `prefers-reduced-motion` support, ARIA labels
-- **Interactive Elements**: Smooth scrolling, scroll-reveal animations, accordion FAQ, mobile nav
-
-## 🛠️ Technology Stack
-
-- **Frontend**: Pure HTML5, CSS3, and JavaScript (ES6+)
-- **Styling**: Custom CSS with CSS Grid and Flexbox
-- **Icons**: Font Awesome 6
-- **Fonts**: Inter from Google Fonts
-- **Hosting**: GitHub Pages with custom domain
-
-## 📁 Project Structure
+Plain HTML, CSS and JavaScript, with no build step and no dependencies to install.
 
 ```
-clutchprotocol.github.io/
-├── index.html          # Main HTML file
-├── styles.css          # All CSS styles
-├── script.js           # JavaScript functionality
-├── assets/
-│   └── og-image.jpg    # Open Graph / social preview image
-├── robots.txt          # Crawler rules + sitemap reference
-├── sitemap.xml         # Sitemap
-├── CNAME              # Custom domain configuration
-├── LICENSE            # MIT License
-├── favicon.ico        # Site favicon
-└── README.md          # This file
+index.html      the page, with its SEO tags and JSON-LD
+styles.css      all styles; colours and fonts are variables in :root
+script.js       the mobile menu and the fare slider
+assets/         social image, the 15-second reel and its poster
+robots.txt, sitemap.xml, favicon.ico
+CNAME, .nojekyll   GitHub Pages settings: do not delete
 ```
 
-## 🎨 Design System
+Fonts are Barlow, Barlow Condensed and IBM Plex Mono from Google Fonts, the only external request.
 
-### Colors
-- **Primary**: #667eea (Gradient start)
-- **Secondary**: #764ba2 (Gradient end)
-- **Background**: #f8f9fa
-- **Text**: #1a1a1a (Dark) / #666 (Light)
+## Run it locally
 
-### Typography
-- **Font Family**: Inter
-- **Headings**: 600-700 weight
-- **Body**: 400 weight
-- **Code**: Monospace
-
-### Components
-- Navigation with mobile hamburger menu (button + ARIA)
-- Hero section with animated blockchain visualization
-- Feature cards with hover effects
-- CLT fee breakdown bars
-- Roadmap milestone cards
-- FAQ accordion
-- Team member cards
-- Community action cards
-
-## 🚀 Development
-
-### Local Development
 ```bash
-# Clone the repository
-git clone https://github.com/clutchprotocol/clutchprotocol.github.io.git
-
-# Navigate to directory
-cd clutchprotocol.github.io
-
-# Serve locally (using any static server)
-# Python 3
-python -m http.server 8000
-
-# Node.js (with serve package)
-npx serve .
-
-# VS Code Live Server extension
-# Right-click index.html -> "Open with Live Server"
+python -m http.server 8000   # or: npx serve .
 ```
 
-### Deployment
-This site is automatically deployed via GitHub Pages when changes are pushed to the `main` branch.
+## Deploy
 
-## 🌍 DNS Configuration
+A push to `main` publishes the site through GitHub Pages. There is no staging: `main` is production.
 
-To point `clutchprotocol.io` to GitHub Pages:
+Commits follow Conventional Commits (`feat:`, `fix:`, `docs:`, ...).
 
-1. **A Records** (for apex domain):
-   ```
-   185.199.108.153
-   185.199.109.153
-   185.199.110.153
-   185.199.111.153
-   ```
+## License
 
-2. **CNAME Record** (for www):
-   ```
-   www.clutchprotocol.io -> clutchprotocol.github.io
-   ```
-
-## 📱 Browser Support
-
-- Chrome 90+
-- Firefox 88+
-- Safari 14+
-- Edge 90+
-
-## 🔧 Features & Functionality
-
-### Interactive Elements
-- Mobile-responsive navigation (button toggle with `aria-expanded`)
-- Smooth scrolling between sections (CSS `scroll-behavior` + `scroll-margin-top`)
-- Intersection Observer scroll-reveal animations
-- Blockchain block hover effects
-- FAQ accordion (`<details>`)
-
-### Performance Features
-- Font Awesome and Google Fonts preconnect
-- Animations disabled under `prefers-reduced-motion`
-- Minimal JavaScript bundle
-- Efficient DOM manipulation
-
-### SEO & Meta
-- Open Graph tags for social sharing
-- Twitter Card meta tags (`name=` attributes)
-- JSON-LD structured data (Organization + WebSite)
-- `robots.txt` and `sitemap.xml`
-- Semantic HTML structure with `<main>` landmark
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'feat: add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-### Commit Convention
-Use conventional commits:
-- `feat:` - New features
-- `fix:` - Bug fixes
-- `docs:` - Documentation updates
-- `style:` - Code formatting
-- `refactor:` - Code refactoring
-- `perf:` - Performance improvements
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Links
-
-- **Organization**: [github.com/clutchprotocol](https://github.com/clutchprotocol)
-- **Documentation**: [docs.clutchprotocol.io](https://docs.clutchprotocol.io)
-- **Mainnet app**: [app.clutchprotocol.io](https://app.clutchprotocol.io)
-- **Stage demo**: [app-stage.clutchprotocol.io](https://app-stage.clutchprotocol.io)
-
-## 📧 Contact
-
-- **Email**: hello@clutchprotocol.io
-- **GitHub**: [@clutchprotocol](https://github.com/clutchprotocol)
-
----
-
-Built with ❤️ for the decentralized future
+MIT, see [LICENSE](LICENSE).
