@@ -49,11 +49,16 @@ Order on page (nav order differs slightly — nav lists Try it before Features):
 
 ## JS (script.js)
 
-One `DOMContentLoaded` handler, under 40 lines, no modules. Two behaviors:
+One `DOMContentLoaded` handler, about 60 lines, no modules. Three behaviors:
 - Mobile hamburger toggle (`.nav-toggle` ↔ `.nav-menu.active`, syncs `aria-expanded`; the bars
   animate from `aria-expanded` in CSS). Clicking a nav link closes the menu.
 - The fare slider in CLT economics: the same split as the chain (each referrer 200 bps rounded down,
   the driver the exact remainder), written into `#fee-bars`.
+- "Add Clutch to MetaMask" (`.btn-wallet`, one per Try-it card): `wallet_addEthereumChain` through
+  `window.ethereum`, result in the `.wallet-status` line under it. The wallet chain ids (20770
+  mainnet, 20771 testnet), RPC (`api[-stage].clutchprotocol.io/rpc`) and explorers are hard-coded
+  in `script.js` and listed in the Endpoints column; they must match the Hub API's `wallet_chain_id`
+  (clutch-deploy `config/api*/default.toml`). The node's own chain id (1000) is NOT the wallet one.
 
 Smooth scrolling is **CSS-only** (`scroll-behavior: smooth` + `scroll-margin-top`); the FAQ
 accordion is native `<details>`; the hero receipt animates in CSS. Do not add JS for any of these.
