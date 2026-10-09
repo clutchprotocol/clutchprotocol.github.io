@@ -34,4 +34,29 @@ document.addEventListener('DOMContentLoaded', function () {
         fare.addEventListener('input', update);
         update();
     }
+
+    // "Add Clutch to MetaMask": the network the app adds, with the wallet chain ids the Hub API's
+    // /rpc answers (20770 mainnet, 20771 testnet; not the node's chain id).
+    const networks = {
+        mainnet: { chainId: '0x5122', chainName: 'Clutch', rpc: 'https://api.clutchprotocol.io/rpc', explorer: 'https://explorer.clutchprotocol.io' },
+        testnet: { chainId: '0x5123', chainName: 'Clutch Testnet', rpc: 'https://api-stage.clutchprotocol.io/rpc', explorer: 'https://explorer-stage.clutchprotocol.io' }
+    };
+    document.querySelectorAll('.btn-wallet').forEach(function (btn) {
+        const status = btn.closest('.try-stage-card').querySelector('.wallet-status');
+        const n = networks[btn.dataset.network];
+        btn.addEventListener('click', function () {
+            if (!window.ethereum) {
+                status.textContent = 'No wallet found. Install MetaMask, or open this page in your wallet app\'s browser.';
+                return;
+            }
+            window.ethereum.request({ method: 'wallet_addEthereumChain', params: [{
+                chainId: n.chainId, chainName: n.chainName, rpcUrls: [n.rpc], blockExplorerUrls: [n.explorer],
+                nativeCurrency: { name: 'Clutch', symbol: 'CLT', decimals: 18 }
+            }] }).then(function () {
+                status.textContent = 'Added. Your wallet now shows your CLT on ' + n.chainName + '.';
+            }).catch(function (e) {
+                status.textContent = e && e.code === 4001 ? 'Not added: the request was declined in your wallet.' : 'Could not add the network. ' + ((e && e.message) || '');
+            });
+        });
+    });
 });
