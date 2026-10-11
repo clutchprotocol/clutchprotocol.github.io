@@ -54,8 +54,10 @@ One `DOMContentLoaded` handler, about 60 lines, no modules. Three behaviors:
   animate from `aria-expanded` in CSS). Clicking a nav link closes the menu.
 - The fare slider in CLT economics: the same split as the chain (each referrer 200 bps rounded down,
   the driver the exact remainder), written into `#fee-bars`.
-- "Add Clutch to MetaMask" (`.btn-wallet`, one per Try-it card): `wallet_addEthereumChain` through
-  `window.ethereum`, result in the `.wallet-status` line under it. The wallet chain ids (20770
+- "Add Clutch to MetaMask" (`.btn-wallet`, one per Try-it card): `wallet_addEthereumChain` on the
+  wallets found by EIP-6963 (MetaMask first, TronLink skipped: it can own `window.ethereum` and
+  answers "method does not exist", seen 2026-10-11), then `window.ethereum`; a wallet that fails
+  passes to the next. Result in the `.wallet-status` line under it. The wallet chain ids (20770
   mainnet, 20771 testnet), RPC (`api[-stage].clutchprotocol.io/rpc`) and explorers are hard-coded
   in `script.js` and listed in the Endpoints column; they must match the Hub API's `wallet_chain_id`
   (clutch-deploy `config/api*/default.toml`). The node's own chain id (1000) is NOT the wallet one.
