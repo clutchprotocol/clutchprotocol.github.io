@@ -179,10 +179,15 @@
                         <li>Open <a href="https://app.clutchprotocol.io" target="_blank" rel="noopener">app.clutchprotocol.io</a>, choose <strong>passenger</strong> or <strong>driver</strong> and connect your wallet (MetaMask, Trust Wallet or TronLink). The app never holds your keys</li>
                         <li>Open the menu and choose <strong>Wallet</strong>, then the <strong>Top up</strong> tab, then send USDT (TRC-20, on Tron) to the address it shows — the treasury mints the same amount of CLT to your wallet</li>
                         <li>As passenger: request a ride on the map. As driver: view requests and submit an offer. Rides settle in CLT on the Clutch mainnet</li>
+                        <li>Optional: add Clutch to MetaMask or Trust Wallet to see your CLT there and send it from the wallet</li>
                     </ol>
-                    <a href="https://app.clutchprotocol.io" class="btn btn-primary" target="_blank" rel="noopener">
-                        Open the mainnet app
-                    </a>
+                    <div class="try-stage-actions">
+                        <a href="https://app.clutchprotocol.io" class="btn btn-primary" target="_blank" rel="noopener">
+                            Open the mainnet app
+                        </a>
+                        <button type="button" class="btn btn-wallet" data-network="mainnet">Add Clutch to MetaMask</button>
+                    </div>
+                    <p class="wallet-status" aria-live="polite"></p>
                     <p class="try-stage-note">Real money, alpha software, small limits: up to $100 per top-up and $200 per day. A network fee is taken from each top-up: $4.00 the first time and $2.00 after. The relay charges less today ($3.00 and $1.50); the difference is not refunded and stays in the reserve as backing. Withdrawals are not open yet. Use only what you can afford to lose. <a href="https://docs.clutchprotocol.io/getting-started/environments" target="_blank" rel="noopener">Details in the docs</a>.</p>
                 </div>
 
@@ -194,9 +199,13 @@
                         <li>Open the menu and choose <strong>Wallet</strong>, then the <strong>Top up</strong> tab, then send Nile testnet USDT to the address it shows — the treasury mints the matching CLT to your wallet</li>
                         <li>As passenger: request a ride on the map. As driver: view requests and submit an offer</li>
                     </ol>
-                    <a href="https://app-stage.clutchprotocol.io" class="btn btn-primary" target="_blank" rel="noopener">
-                        Open stage demo
-                    </a>
+                    <div class="try-stage-actions">
+                        <a href="https://app-stage.clutchprotocol.io" class="btn btn-primary" target="_blank" rel="noopener">
+                            Open stage demo
+                        </a>
+                        <button type="button" class="btn btn-wallet" data-network="testnet">Add Clutch to MetaMask</button>
+                    </div>
+                    <p class="wallet-status" aria-live="polite"></p>
                     <p class="try-stage-note">Testnet: test money only, no real value. You can use a wallet with a throwaway account.</p>
                 </div>
                 </div>
@@ -206,8 +215,10 @@
                     <ul>
                         <li><strong>Mainnet app:</strong> <a href="https://app.clutchprotocol.io" target="_blank" rel="noopener">app.clutchprotocol.io</a></li>
                         <li><strong>Mainnet Hub API:</strong> <a href="https://api.clutchprotocol.io/health" target="_blank" rel="noopener">api.clutchprotocol.io</a></li>
+                        <li><strong>Mainnet wallet network:</strong> RPC <code>https://api.clutchprotocol.io/rpc</code>, chain ID 20770, currency CLT</li>
                         <li><strong>Testnet demo app:</strong> <a href="https://app-stage.clutchprotocol.io" target="_blank" rel="noopener">app-stage.clutchprotocol.io</a></li>
                         <li><strong>Testnet Hub API:</strong> <a href="https://api-stage.clutchprotocol.io/health" target="_blank" rel="noopener">api-stage.clutchprotocol.io</a></li>
+                        <li><strong>Testnet wallet network:</strong> RPC <code>https://api-stage.clutchprotocol.io/rpc</code>, chain ID 20771, currency CLT</li>
                         <li><strong>Docs:</strong> <a href="https://docs.clutchprotocol.io/getting-started/environments" target="_blank" rel="noopener">Environments guide</a></li>
                         <li><strong>SDK:</strong> <a href="https://www.npmjs.com/package/clutch-hub-sdk-js" target="_blank" rel="noopener">clutch-hub-sdk-js on npm</a></li>
                         <li><strong>App rewards:</strong> <a href="https://docs.clutchprotocol.io/getting-started/app-developer-incentives" target="_blank" rel="noopener">Earn CLT as an app builder</a></li>

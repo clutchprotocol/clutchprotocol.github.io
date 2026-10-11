@@ -223,6 +223,12 @@ main > section:not(.hero):not(.reel)::before {
 .try-stage-card .btn-primary { background: var(--lane); color: var(--asphalt); border-color: var(--lane); }
 .try-stage-card .btn-primary:hover { background: #fff; border-color: #fff; color: var(--asphalt); }
 .try-stage-note { margin-top: 1.25rem; font-size: 0.95rem; color: #bcd2c8; }
+.try-stage-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.try-stage-card .btn-wallet { border-color: #f4f8f5; color: #fff; font-family: inherit; cursor: pointer; }
+.try-stage-card .btn-wallet:hover { background: #fff; color: var(--asphalt); }
+.wallet-status { margin-top: 0.75rem; font-size: 0.95rem; color: #fff; }
+.wallet-status:empty { display: none; }
+.try-stage-links code { font-family: var(--font-receipt); font-size: 0.9em; word-break: break-all; }
 .try-stage-links h3 { font-size: 1.6rem; margin-bottom: 0.75rem; }
 .try-stage-links ul { list-style: none; }
 .try-stage-links li { padding: 0.7rem 0; border-top: 1px solid var(--line); }
