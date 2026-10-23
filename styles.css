@@ -270,13 +270,13 @@ main > section:not(.hero):not(.reel)::before {
 .fee-developer-callout p { margin-bottom: 1.1rem; max-width: 62ch; }
 
 /* Roadmap: a route with stops */
-.roadmap-grid { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 3vw, 40px); padding-top: 34px; }
+.roadmap-grid { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(20px, 3vw, 40px); padding-top: 34px; }
 .roadmap-grid::before {
     content: ""; position: absolute; top: 9px; left: 0; right: 0; height: 0;
     border-top: 4px solid var(--sign);
 }
 .roadmap-grid::after { /* the part of the road not built yet */
-    content: ""; position: absolute; top: 9px; left: 66.66%; right: 0; height: 0;
+    content: ""; position: absolute; top: 9px; left: 75%; right: 0; height: 0;
     border-top: 4px dashed var(--muted); background: var(--concrete); margin-top: -2px; padding-top: 0;
 }
 .roadmap-card { position: relative; }
