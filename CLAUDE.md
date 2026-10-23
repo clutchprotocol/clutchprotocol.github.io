@@ -17,7 +17,7 @@ Order on page (nav order differs slightly — nav lists Try it before Features):
 | Hero | `#home` `.hero` | Title, description, CTA buttons, and a ride receipt that prints in once on load |
 | Reel | `#reel` `.reel` (not nav-linked) | "Clutch in 15 seconds": `assets/clutch-reel.mp4` (1080p60 H.264 + AAC, 15 MB) with poster `assets/clutch-reel-poster.jpg`. The only dark band. `preload="none"` and no autoplay, so the file costs nothing until someone presses play. It is rendered outside this repo; replace both files together, and keep the MP4 small, because every version stays in git history |
 | What is Clutch | `#what-is-clutch` `.what-is` (not nav-linked) | The three-line project summary, same text as the org profile README: what it is, how apps use it, money and servers |
-| Try it | `#try-stage` `.try-stage` | Two dark cards (`.try-stage-cards`): the mainnet pilot and the testnet quick start, then the endpoint links for both. The id stays `try-stage`, so old links keep working |
+| Try it | `#try-stage` `.try-stage` | Two dark cards (`.try-stage-cards`): the mainnet and the testnet quick start, then the endpoint links for both. The id stays `try-stage`, so old links keep working |
 | Features | `#features` `.features` | Ruled two-column list ("What exists today") |
 | Stack | `.architecture` (**no id** — not nav-linked) | One row per repo |
 | CLT economics | `#tokenomics` `.tokenomics` | Fare slider (`#fare`) driving the fee bars, + app-developer callout |
@@ -89,10 +89,11 @@ Jekyll processing. Don't delete either file. There is no staging — main is pro
 - No icons; external links get
   `target="_blank" rel="noopener"`; keep ARIA labels on icon-only links.
 - Copy is deliberately honest "alpha" messaging (what exists vs. planned) — don't inflate claims.
-  Since 2026-10-05 the mainnet is live as a **capped pilot**, and the copy must keep saying so: small
-  limits, real money, alpha, treasury keys on the server, withdrawals not open until the payout wallet
-  is activated (change that line when it is). Audited crypto, independent validators, hardware-backed
-  keys and higher limits stay marked as planned. Governance is not implemented.
+  The mainnet has been live since 2026-10-05 and withdrawals since 2026-10-16. Since 2026-10-23 the
+  copy calls it **production**, not a pilot (Mehran's decision), but must still say: small limits, real
+  money, alpha, treasury keys on the server, not audited. Audited crypto, independent validators,
+  hardware-backed keys and higher limits stay marked as planned ("Hardening the mainnet" on the
+  roadmap). Governance is not implemented.
 - The three-line "What is Clutch?" summary is the same text in three places (the org profile README,
   this page, the docs homepage `src/pages/index.tsx`): change all three together.
 - Footer copyright year is hardcoded (`© 2026`).
