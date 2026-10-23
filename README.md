@@ -3,10 +3,10 @@
 The site at [clutchprotocol.io](https://clutchprotocol.io): one static page for Clutch Protocol, an
 open-source ride-sharing blockchain.
 
-Alpha software: the mainnet is live as a capped pilot (small limits, real money), and the stage
+Alpha software: the mainnet is live in production (small limits, real money), and the stage
 testnet is for experiments. APIs may change.
 
-- **Mainnet app (pilot)**: [app.clutchprotocol.io](https://app.clutchprotocol.io)
+- **Mainnet app**: [app.clutchprotocol.io](https://app.clutchprotocol.io)
 - **Testnet app**: [app-stage.clutchprotocol.io](https://app-stage.clutchprotocol.io)
 - **Documentation**: [docs.clutchprotocol.io](https://docs.clutchprotocol.io)
 - **Code**: [github.com/clutchprotocol](https://github.com/clutchprotocol)
